@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitZone - Transform Your Body, Transform Your Life</title>
+    <meta name="description" content="Professional fitness center offering personalized training, group classes, and nutrition guidance. Join FitZone today!">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #4b5563 100%);
+        }
+        
+        .accent-gradient {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #ef4444;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .testimonial-card {
+            min-height: 200px;
+            transition: all 0.5s ease;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.open {
+            max-height: 200px;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .typing-animation {
+            overflow: hidden;
+            border-right: 2px solid #ef4444;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #ef4444; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-gray-800">
+                        <span class="text-red-500">Fit</span>Zone
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium active" onclick="showPage('home')">Home</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium" onclick="showPage('about')">About</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium" onclick="showPage('courses')">Courses</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium" onclick="showPage('pricing')">Pricing</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium" onclick="showPage('gallery')">Gallery</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium" onclick="showPage('testimonials')">Reviews</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium" onclick="showPage('faq')">FAQ</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium" onclick="showPage('contact')">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-red-500">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('home')">Home</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('about')">About</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('courses')">Courses</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('pricing')">Pricing</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('gallery')">Gallery</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('testimonials')">Reviews</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('faq')">FAQ</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('contact')">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero-gradient min-h-screen flex items-center justify-center text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-black opacity-20"></div>
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 fade-in">
+                    Transform Your <span class="text-red-500 typing-animation">Body</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 fade-in" style="animation-delay: 0.5s;">
+                    Join FitZone and discover the strongest version of yourself
+                </p>
+                <div class="space-x-4 fade-in" style="animation-delay: 1s;">
+                    <button onclick="showPage('courses')" class="accent-gradient text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-300 pulse-animation">
+                        Start Your Journey
+                    </button>
+                    <button onclick="showPage('about')" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-gray-800 transition-all duration-300">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Overview -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4 fade-in">Why Choose FitZone?</h2>
+                    <p class="text-xl text-gray-600 fade-in">Your fitness journey starts with the right foundation</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center hover-lift fade-in">
+                        <div class="w-20 h-20 accent-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-dumbbell text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Expert Trainers</h3>
+                        <p class="text-gray-600">Certified professionals dedicated to your success</p>
+                    </div>
+                    <div class="text-center hover-lift fade-in" style="animation-delay: 0.2s;">
+                        <div class="w-20 h-20 accent-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-clock text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Flexible Schedule</h3>
+                        <p class="text-gray-600">Train when it works for you, 24/7 access</p>
+                    </div>
+                    <div class="text-center hover-lift fade-in" style="animation-delay: 0.4s;">
+                        <div class="w-20 h-20 accent-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-trophy text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Proven Results</h3>
+                        <p class="text-gray-600">Join thousands who've achieved their goals</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <section class="pt-24 pb-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">About FitZone</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
+                        Founded in 2015, FitZone has been transforming lives through fitness, nutrition, and community support.
+                    </p>
+                </div>
+
+                <!-- Mission Section -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div class="slide-in-left">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Mission</h2>
+                        <p class="text-gray-600 mb-6">
+                            At FitZone, we believe fitness is not just about physical transformation—it's about building confidence, 
+                            creating healthy habits, and fostering a supportive community where everyone can thrive.
+                        </p>
+                        <p class="text-gray-600">
+                            Our state-of-the-art facility, expert trainers, and personalized approach ensure that every member 
+                            receives the guidance and motivation they need to achieve their unique fitness goals.
+                        </p>
+                    </div>
+                    <div class="slide-in-right">
+                        <div class="bg-gradient-to-br from-red-500 to-red-600 rounded-lg p-8 text-white">
+                            <div class="grid grid-cols-2 gap-6 text-center">
+                                <div>
+                                    <div class="text-3xl font-bold">5000+</div>
+                                    <div class="text-red-100">Happy Members</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-bold">50+</div>
+                                    <div class="text-red-100">Expert Trainers</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-bold">8</div>
+                                    <div class="text-red-100">Years Experience</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-bold">24/7</div>
+                                    <div class="text-red-100">Access</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trainers Section -->
+                <div class="mb-20">
+                    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12 fade-in">Meet Our Trainers</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in">
+                            <div class="h-64 bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center">
+                                <i class="fas fa-user text-white text-6xl"></i>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">Sarah Johnson</h3>
+                                <p class="text-red-500 mb-3">Head Trainer & Nutritionist</p>
+                                <p class="text-gray-600 text-sm">
+                                    10+ years experience in strength training and nutrition coaching. 
+                                    Specializes in weight loss and muscle building programs.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" style="animation-delay: 0.2s;">
+                            <div class="h-64 bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center">
+                                <i class="fas fa-user text-white text-6xl"></i>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">Mike Rodriguez</h3>
+                                <p class="text-red-500 mb-3">CrossFit & HIIT Specialist</p>
+                                <p class="text-gray-600 text-sm">
+                                    Former competitive athlete with expertise in high-intensity training 
+                                    and functional fitness movements.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
+                            <div class="h-64 bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center">
+                                <i class="fas fa-user text-white text-6xl"></i>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">Emma Chen</h3>
+                                <p class="text-red-500 mb-3">Yoga & Pilates Instructor</p>
+                                <p class="text-gray-600 text-sm">
+                                    Certified yoga instructor focusing on flexibility, mindfulness, 
+                                    and core strengthening through Pilates and yoga practices.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 fade-in">Our Journey</h2>
+                    <div class="space-y-8">
+                        <div class="flex items-center slide-in-left">
+                            <div class="w-4 h-4 bg-red-500 rounded-full mr-6"></div>
+                            <div>
+                                <h3 class="text-xl font-semibold">2015 - Founded</h3>
+                                <p class="text-gray-600">FitZone opened its doors with a vision to make fitness accessible to everyone</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center slide-in-right">
+                            <div class="w-4 h-4 bg-red-500 rounded-full mr-6"></div>
+                            <div>
+                                <h3 class="text-xl font-semibold">2018 - Expansion</h3>
+                                <p class="text-gray-600">Added specialized training areas and nutrition counseling services</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center slide-in-left">
+                            <div class="w-4 h-4 bg-red-500 rounded-full mr-6"></div>
+                            <div>
+                                <h3 class="text-xl font-semibold">2021 - Digital Integration</h3>
+                                <p class="text-gray-600">Launched virtual training programs and mobile app for members</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center slide-in-right">
+                            <div class="w-4 h-4 bg-red-500 rounded-full mr-6"></div>
+                            <div>
+                                <h3 class="text-xl font-semibold">2023 - Community Focus</h3>
+                                <p class="text-gray-600">Reached 5000+ members and became the leading fitness center in the region</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Courses Page -->
+    <div id="courses" class="page">
+        <section class="pt-24 pb-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">Our Programs</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
+                        Choose from our diverse range of fitness programs designed for all levels and goals
+                    </p>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button onclick="filterCourses('all')" class="filter-btn bg-red-500 text-white px-6 py-2 rounded-full font-medium hover:bg-red-600 transition-colors">
+                        All Programs
+                    </button>
+                    <button onclick="filterCourses('strength')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                        Strength Training
+                    </button>
+                    <button onclick="filterCourses('cardio')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                        Cardio
+                    </button>
+                    <button onclick="filterCourses('flexibility')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                        Flexibility
+                    </button>
+                    <button onclick="filterCourses('group')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                        Group Classes
+                    </button>
+                </div>
+
+                <!-- Courses Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="courses-grid">
+                    <!-- Strength Training -->
+                    <div class="course-card bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" data-category="strength">
+                        <div class="h-48 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
+                            <i class="fas fa-dumbbell text-white text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-semibold">Personal Training</h3>
+                                <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-sm">1-on-1</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                Customized strength training program with dedicated personal trainer
+                            </p>
+                            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                                <div><i class="fas fa-clock mr-2"></i>60 minutes</div>
+                                <div><i class="fas fa-user mr-2"></i>Trainer: Sarah Johnson</div>
+                                <div><i class="fas fa-calendar mr-2"></i>Flexible scheduling</div>
+                            </div>
+                            <button class="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-colors">
+                                Book Session
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cardio -->
+                    <div class="course-card bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" data-category="cardio" style="animation-delay: 0.1s;">
+                        <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                            <i class="fas fa-running text-white text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-semibold">HIIT Training</h3>
+                                <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-sm">Group</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                High-intensity interval training for maximum calorie burn
+                            </p>
+                            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                                <div><i class="fas fa-clock mr-2"></i>45 minutes</div>
+                                <div><i class="fas fa-user mr-2"></i>Trainer: Mike Rodriguez</div>
+                                <div><i class="fas fa-calendar mr-2"></i>Mon, Wed, Fri - 6:00 PM</div>
+                            </div>
+                            <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                                Join Class
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Flexibility -->
+                    <div class="course-card bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" data-category="flexibility" style="animation-delay: 0.2s;">
+                        <div class="h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+                            <i class="fas fa-leaf text-white text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-semibold">Yoga Flow</h3>
+                                <span class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm">Group</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                Mindful movement combining strength, flexibility, and relaxation
+                            </p>
+                            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                                <div><i class="fas fa-clock mr-2"></i>60 minutes</div>
+                                <div><i class="fas fa-user mr-2"></i>Trainer: Emma Chen</div>
+                                <div><i class="fas fa-calendar mr-2"></i>Tue, Thu - 7:00 AM</div>
+                            </div>
+                            <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors">
+                                Join Class
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- More courses -->
+                    <div class="course-card bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" data-category="strength" style="animation-delay: 0.3s;">
+                        <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
+                            <i class="fas fa-weight-hanging text-white text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-semibold">CrossFit</h3>
+                                <span class="bg-purple-100 text-purple-600 px-2 py-1 rounded text-sm">Group</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                Functional fitness combining cardio, strength, and agility
+                            </p>
+                            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                                <div><i class="fas fa-clock mr-2"></i>50 minutes</div>
+                                <div><i class="fas fa-user mr-2"></i>Trainer: Mike Rodriguez</div>
+                                <div><i class="fas fa-calendar mr-2"></i>Daily - 5:30 PM</div>
+                            </div>
+                            <button class="w-full bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600 transition-colors">
+                                Join Class
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="course-card bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" data-category="flexibility" style="animation-delay: 0.4s;">
+                        <div class="h-48 bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center">
+                            <i class="fas fa-heart text-white text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-semibold">Pilates</h3>
+                                <span class="bg-pink-100 text-pink-600 px-2 py-1 rounded text-sm">Group</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                Core-focused exercises for strength, stability, and posture
+                            </p>
+                            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                                <div><i class="fas fa-clock mr-2"></i>55 minutes</div>
+                                <div><i class="fas fa-user mr-2"></i>Trainer: Emma Chen</div>
+                                <div><i class="fas fa-calendar mr-2"></i>Mon, Wed - 8:00 AM</div>
+                            </div>
+                            <button class="w-full bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition-colors">
+                                Join Class
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="course-card bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" data-category="group" style="animation-delay: 0.5s;">
+                        <div class="h-48 bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                            <i class="fas fa-users text-white text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-semibold">Bootcamp</h3>
+                                <span class="bg-orange-100 text-orange-600 px-2 py-1 rounded text-sm">Group</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                Military-style training for ultimate fitness challenge
+                            </p>
+                            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                                <div><i class="fas fa-clock mr-2"></i>45 minutes</div>
+                                <div><i class="fas fa-user mr-2"></i>Trainer: Sarah Johnson</div>
+                                <div><i class="fas fa-calendar mr-2"></i>Sat - 9:00 AM</div>
+                            </div>
+                            <button class="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors">
+                                Join Class
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Pricing Page -->
+    <div id="pricing" class="page">
+        <section class="pt-24 pb-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">Membership Plans</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
+                        Choose the perfect plan that fits your lifestyle and fitness goals
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Basic Plan -->
+                    <div class="bg-white rounded-lg shadow-lg p-8 hover-lift fade-in">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Basic</h3>
+                            <div class="text-4xl font-bold text-gray-800 mb-2">$29<span class="text-lg text-gray-500">/month</span></div>
+                            <p class="text-gray-600 mb-8">Perfect for getting started</p>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Gym access during off-peak hours</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Basic equipment usage</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Locker room access</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Mobile app access</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-gray-200 text-gray-800 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
+                            Choose Basic
+                        </button>
+                    </div>
+
+                    <!-- Premium Plan (Most Popular) -->
+                    <div class="bg-white rounded-lg shadow-xl p-8 hover-lift fade-in relative border-4 border-red-500" style="animation-delay: 0.2s;">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-red-500 text-white px-6 py-2 rounded-full text-sm font-semibold">Most Popular</span>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Premium</h3>
+                            <div class="text-4xl font-bold text-red-500 mb-2">$59<span class="text-lg text-gray-500">/month</span></div>
+                            <p class="text-gray-600 mb-8">Everything you need to succeed</p>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>24/7 gym access</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>All equipment & facilities</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Unlimited group classes</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>2 personal training sessions/month</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Nutrition consultation</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Guest passes (2/month)</span>
+                            </li>
+                        </ul>
+                        <button class="w-full accent-gradient text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 pulse-animation">
+                            Choose Premium
+                        </button>
+                    </div>
+
+                    <!-- Elite Plan -->
+                    <div class="bg-white rounded-lg shadow-lg p-8 hover-lift fade-in" style="animation-delay: 0.4s;">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Elite</h3>
+                            <div class="text-4xl font-bold text-gray-800 mb-2">$99<span class="text-lg text-gray-500">/month</span></div>
+                            <p class="text-gray-600 mb-8">Ultimate fitness experience</p>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>All Premium benefits</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Unlimited personal training</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Custom meal plans</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Recovery services (massage, sauna)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Priority booking</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Unlimited guest passes</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors">
+                            Choose Elite
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="mt-16 text-center">
+                    <div class="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto fade-in">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">All Plans Include</h3>
+                        <div class="grid md:grid-cols-4 gap-6">
+                            <div class="text-center">
+                                <i class="fas fa-shield-alt text-red-500 text-3xl mb-3"></i>
+                                <h4 class="font-semibold mb-2">No Commitment</h4>
+                                <p class="text-sm text-gray-600">Cancel anytime</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fas fa-mobile-alt text-red-500 text-3xl mb-3"></i>
+                                <h4 class="font-semibold mb-2">Mobile App</h4>
+                                <p class="text-sm text-gray-600">Track progress</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fas fa-parking text-red-500 text-3xl mb-3"></i>
+                                <h4 class="font-semibold mb-2">Free Parking</h4>
+                                <p class="text-sm text-gray-600">Convenient access</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fas fa-wifi text-red-500 text-3xl mb-3"></i>
+                                <h4 class="font-semibold mb-2">Free WiFi</h4>
+                                <p class="text-sm text-gray-600">Stay connected</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Gallery Page -->
+    <div id="gallery" class="page">
+        <section class="pt-24 pb-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">Gallery</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
+                        Take a look at our state-of-the-art facilities and vibrant community
+                    </p>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="gallery-item bg-gradient-to-br from-red-400 to-red-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(0)">
+                        <div class="text-center text-white">
+                            <i class="fas fa-dumbbell text-4xl mb-2"></i>
+                            <p class="text-sm">Weight Training Area</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item bg-gradient-to-br from-blue-400 to-blue-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(1)" style="animation-delay: 0.1s;">
+                        <div class="text-center text-white">
+                            <i class="fas fa-running text-4xl mb-2"></i>
+                            <p class="text-sm">Cardio Zone</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item bg-gradient-to-br from-green-400 to-green-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(2)" style="animation-delay: 0.2s;">
+                        <div class="text-center text-white">
+                            <i class="fas fa-leaf text-4xl mb-2"></i>
+                            <p class="text-sm">Yoga Studio</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item bg-gradient-to-br from-purple-400 to-purple-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(3)" style="animation-delay: 0.3s;">
+                        <div class="text-center text-white">
+                            <i class="fas fa-users text-4xl mb-2"></i>
+                            <p class="text-sm">Group Classes</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item bg-gradient-to-br from-orange-400 to-orange-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(4)" style="animation-delay: 0.4s;">
+                        <div class="text-center text-white">
+                            <i class="fas fa-swimmer text-4xl mb-2"></i>
+                            <p class="text-sm">Swimming Pool</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item bg-gradient-to-br from-pink-400 to-pink-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(5)" style="animation-delay: 0.5s;">
+                        <div class="text-center text-white">
+                            <i class="fas fa-spa text-4xl mb-2"></i>
+                            <p class="text-sm">Recovery Area</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item bg-gradient-to-br from-indigo-400 to-indigo-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(6)" style="animation-delay: 0.6s;">
+                        <div class="text-center text-white">
+                            <i class="fas fa-utensils text-4xl mb-2"></i>
+                            <p class="text-sm">Nutrition Bar</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item bg-gradient-to-br from-gray-400 to-gray-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(7)" style="animation-delay: 0.7s;">
+                        <div class="text-center text-white">
+                            <i class="fas fa-trophy text-4xl mb-2"></i>
+                            <p class="text-sm">Success Stories</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Section -->
+                <div class="mt-16">
+                    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8 fade-in">Virtual Tour</h2>
+                    <div class="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto fade-in">
+                        <div class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-play-circle text-6xl mb-4 cursor-pointer hover:text-red-500 transition-colors" onclick="playVideo()"></i>
+                                <p class="text-xl">Take a Virtual Tour of FitZone</p>
+                                <p class="text-gray-300 mt-2">Click to explore our facilities</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <div class="relative max-w-4xl max-h-full">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-3xl hover:text-red-500 z-10">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="lightbox-content" class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-12 text-center text-white">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Page -->
+    <div id="testimonials" class="page">
+        <section class="pt-24 pb-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">What Our Members Say</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
+                        Real stories from real people who transformed their lives at FitZone
+                    </p>
+                </div>
+
+                <!-- Testimonials Carousel -->
+                <div class="relative max-w-4xl mx-auto mb-16">
+                    <div id="testimonial-container" class="bg-white rounded-lg shadow-lg p-8 min-h-[300px]">
+                        <!-- Testimonials will be dynamically loaded -->
+                    </div>
+                    <button onclick="previousTestimonial()" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-red-500 text-white w-12 h-12 rounded-full hover:bg-red-600 transition-colors">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button onclick="nextTestimonial()" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-red-500 text-white w-12 h-12 rounded-full hover:bg-red-600 transition-colors">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="grid md:grid-cols-4 gap-8 mb-16">
+                    <div class="text-center fade-in">
+                        <div class="text-4xl font-bold text-red-500 mb-2">98%</div>
+                        <div class="text-gray-600">Member Satisfaction</div>
+                    </div>
+                    <div class="text-center fade-in" style="animation-delay: 0.1s;">
+                        <div class="text-4xl font-bold text-red-500 mb-2">5000+</div>
+                        <div class="text-gray-600">Happy Members</div>
+                    </div>
+                    <div class="text-center fade-in" style="animation-delay: 0.2s;">
+                        <div class="text-4xl font-bold text-red-500 mb-2">85%</div>
+                        <div class="text-gray-600">Achieve Their Goals</div>
+                    </div>
+                    <div class="text-center fade-in" style="animation-delay: 0.3s;">
+                        <div class="text-4xl font-bold text-red-500 mb-2">4.9</div>
+                        <div class="text-gray-600">Average Rating</div>
+                    </div>
+                </div>
+
+                <!-- Review Grid -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-lift fade-in">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Jessica M.</h3>
+                                <div class="text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">
+                            "The trainers at FitZone are incredible! I've lost 30 pounds and gained so much confidence. 
+                            The community here is so supportive and motivating."
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-lift fade-in" style="animation-delay: 0.2s;">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">David R.</h3>
+                                <div class="text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">
+                            "Best gym I've ever been to! The equipment is top-notch, facilities are always clean, 
+                            and the 24/7 access fits perfectly with my schedule."
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-lift fade-in" style="animation-delay: 0.4s;">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Maria L.</h3>
+                                <div class="text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">
+                            "The yoga classes with Emma are amazing! I've improved my flexibility and found inner peace. 
+                            FitZone truly cares about holistic wellness."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FAQ Page -->
+    <div id="faq" class="page">
+        <section class="pt-24 pb-20 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">Frequently Asked Questions</h1>
+                    <p class="text-xl text-gray-600 fade-in">
+                        Find answers to common questions about FitZone membership and services
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-white rounded-lg shadow-lg fade-in">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg hover:text-red-500 transition-colors flex justify-between items-center" onclick="toggleFAQ(0)">
+                            What are your operating hours?
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">
+                                FitZone is open 24/7 for Premium and Elite members. Basic members have access during off-peak hours: 
+                                Monday-Friday 10am-4pm and 8pm-10pm, weekends 8am-6pm. Our staffed hours are Monday-Friday 6am-10pm, 
+                                weekends 8am-8pm.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg fade-in" style="animation-delay: 0.1s;">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg hover:text-red-500 transition-colors flex justify-between items-center" onclick="toggleFAQ(1)">
+                            Do I need to sign a long-term contract?
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">
+                                No! All our memberships are month-to-month with no long-term commitment. You can cancel anytime with 
+                                30 days notice. We believe in earning your membership every month through excellent service and results.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg fade-in" style="animation-delay: 0.2s;">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg hover:text-red-500 transition-colors flex justify-between items-center" onclick="toggleFAQ(2)">
+                            What should I bring for my first visit?
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">
+                                Bring a valid ID, comfortable workout clothes, athletic shoes, a water bottle, and a towel. 
+                                We provide complimentary towels for Premium and Elite members. Don't forget to bring your motivation - 
+                                we'll provide the rest!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg fade-in" style="animation-delay: 0.3s;">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg hover:text-red-500 transition-colors flex justify-between items-center" onclick="toggleFAQ(3)">
+                            Can I freeze my membership if I travel?
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">
+                                Yes! You can freeze your membership for up to 3 months per year for a small administrative fee of $10/month. 
+                                This is perfect for extended travel, medical reasons, or other life circumstances. Just give us 7 days notice.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg fade-in" style="animation-delay: 0.4s;">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg hover:text-red-500 transition-colors flex justify-between items-center" onclick="toggleFAQ(4)">
+                            Do you offer personal training?
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">
+                                Absolutely! We have certified personal trainers available for one-on-one sessions. Premium members get 
+                                2 sessions per month included, Elite members get unlimited sessions. Additional sessions can be purchased 
+                                at member rates.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg fade-in" style="animation-delay: 0.5s;">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg hover:text-red-500 transition-colors flex justify-between items-center" onclick="toggleFAQ(5)">
+                            Is there parking available?
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">
+                                Yes! We offer free parking for all members with over 200 spaces available. The parking lot is well-lit 
+                                and monitored by security cameras for your safety. We also have bike racks for those who prefer to cycle.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg fade-in" style="animation-delay: 0.6s;">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg hover:text-red-500 transition-colors flex justify-between items-center" onclick="toggleFAQ(6)">
+                            What COVID-19 safety measures do you have?
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-600">
+                                Your safety is our priority. We maintain enhanced cleaning protocols, provide sanitizing stations throughout 
+                                the facility, ensure proper ventilation, and have flexible policies for members who need to stay home when unwell. 
+                                Our staff is trained in the latest health and safety guidelines.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact CTA -->
+                <div class="mt-16 text-center bg-white rounded-lg shadow-lg p-8 fade-in">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Still Have Questions?</h3>
+                    <p class="text-gray-600 mb-6">
+                        Our friendly staff is here to help! Contact us anytime and we'll get back to you quickly.
+                    </p>
+                    <button onclick="showPage('contact')" class="accent-gradient text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                        Contact Us
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <section class="pt-24 pb-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">Get In Touch</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
+                        Ready to start your fitness journey? We'd love to hear from you!
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="bg-white rounded-lg shadow-lg p-8 fade-in">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h2>
+                        <form id="contact-form" onsubmit="submitContactForm(event)">
+                            <div class="mb-6">
+                                <label class="block text-gray-700 text-sm font-semibold mb-2" for="name">
+                                    Full Name *
+                                </label>
+                                <input class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-colors" 
+                                       id="name" type="text" placeholder="Your full name" required>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-gray-700 text-sm font-semibold mb-2" for="email">
+                                    Email Address *
+                                </label>
+                                <input class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-colors" 
+                                       id="email" type="email" placeholder="your.email@example.com" required>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-gray-700 text-sm font-semibold mb-2" for="phone">
+                                    Phone Number
+                                </label>
+                                <input class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-colors" 
+                                       id="phone" type="tel" placeholder="(555) 123-4567">
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-gray-700 text-sm font-semibold mb-2" for="interest">
+                                    I'm Interested In
+                                </label>
+                                <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-colors" id="interest">
+                                    <option value="">Select an option</option>
+                                    <option value="membership">Membership Information</option>
+                                    <option value="personal-training">Personal Training</option>
+                                    <option value="group-classes">Group Classes</option>
+                                    <option value="nutrition">Nutrition Consultation</option>
+                                    <option value="corporate">Corporate Wellness</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-gray-700 text-sm font-semibold mb-2" for="message">
+                                    Message *
+                                </label>
+                                <textarea class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-colors h-32 resize-none" 
+                                          id="message" placeholder="Tell us about your fitness goals or any questions you have..." required></textarea>
+                            </div>
+                            <button type="submit" class="w-full accent-gradient text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                        <div id="form-message" class="mt-4 text-center hidden"></div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="space-y-8 slide-in-right">
+                        <!-- Location -->
+                        <div class="bg-white rounded-lg shadow-lg p-8">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-map-marker-alt text-red-500 mr-3"></i>
+                                Visit Our Gym
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                123 Fitness Street<br>
+                                Wellness District<br>
+                                Healthy City, HC 12345
+                            </p>
+                            <div class="bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg h-48 flex items-center justify-center">
+                                <div class="text-center text-gray-600">
+                                    <i class="fas fa-map text-4xl mb-2"></i>
+                                    <p>Interactive Map</p>
+                                    <p class="text-sm">Click to get directions</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Details -->
+                        <div class="bg-white rounded-lg shadow-lg p-8">
+                            <h3 class="text-xl font-bold text-gray-800 mb-6">Contact Information</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-phone text-red-500 mr-4 w-5"></i>
+                                    <div>
+                                        <p class="font-semibold">Phone</p>
+                                        <p class="text-gray-600">(555) 123-FITZONE</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-envelope text-red-500 mr-4 w-5"></i>
+                                    <div>
+                                        <p class="font-semibold">Email</p>
+                                        <p class="text-gray-600">info@fitzone.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-clock text-red-500 mr-4 w-5"></i>
+                                    <div>
+                                        <p class="font-semibold">Staffed Hours</p>
+                                        <p class="text-gray-600">Mon-Fri: 6am-10pm<br>Weekends: 8am-8pm</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="bg-white rounded-lg shadow-lg p-8">
+                            <h3 class="text-xl font-bold text-gray-800 mb-6">Follow Us</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-blue-400 text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold mb-4">
+                        <span class="text-red-500">Fit</span>Zone
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Transform your body, transform your life. Join the FitZone community today.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-red-500 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-red-500 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-red-500 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" onclick="showPage('about')" class="text-gray-300 hover:text-red-500 transition-colors">About Us</a></li>
+                        <li><a href="#" onclick="showPage('courses')" class="text-gray-300 hover:text-red-500 transition-colors">Programs</a></li>
+                        <li><a href="#" onclick="showPage('pricing')" class="text-gray-300 hover:text-red-500 transition-colors">Membership</a></li>
+                        <li><a href="#" onclick="showPage('contact')" class="text-gray-300 hover:text-red-500 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-red-500 transition-colors">Personal Training</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-red-500 transition-colors">Group Classes</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-red-500 transition-colors">Nutrition Coaching</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-red-500 transition-colors">Recovery Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>123 Fitness Street, Healthy City</li>
+                        <li><i class="fas fa-phone mr-2"></i>(555) 123-FITZONE</li>
+                        <li><i class="fas fa-envelope mr-2"></i>info@fitzone.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2023 FitZone. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global variables
+        let currentTestimonial = 0;
+        let currentFAQ = -1;
+        
+        const testimonials = [
+            {
+                name: "Sarah Thompson",
+                role: "Marketing Manager",
+                rating: 5,
+                text: "FitZone completely transformed my life! I lost 40 pounds in 6 months and gained incredible strength and confidence. The trainers are amazing and the community is so supportive. I actually look forward to my workouts now!",
+                achievement: "Lost 40 lbs in 6 months"
+            },
+            {
+                name: "Michael Chen",
+                role: "Software Engineer",
+                rating: 5,
+                text: "As someone who sits at a desk all day, I was struggling with back pain and low energy. The personal training program at FitZone fixed my posture issues and I feel more energetic than I have in years. Best investment I've made!",
+                achievement: "Eliminated chronic back pain"
+            },
+            {
+                name: "Emily Rodriguez",
+                role: "Teacher",
+                rating: 5,
+                text: "The yoga and pilates classes have been life-changing. Emma is an incredible instructor who helped me find balance between strength and flexibility. I'm stronger and more centered than ever before.",
+                achievement: "Improved flexibility by 200%"
+            },
+            {
+                name: "James Wilson",
+                role: "Retired Veteran",
+                rating: 5,
+                text: "At 55, I thought my best fitness days were behind me. FitZone proved me wrong! The trainers adapted everything to my needs and limitations. I'm in the best shape of my life and feel 20 years younger.",
+                achievement: "Gained 15 lbs of muscle at age 55"
+            }
+        ];
+
+        const galleryItems = [
+            {
+                title: "Weight Training Area",
+                description: "State-of-the-art equipment for all your strength training needs. From free weights to advanced machines, we have everything to help you build muscle and increase strength.",
+                icon: "fas fa-dumbbell"
+            },
+            {
+                title: "Cardio Zone",
+                description: "Modern cardio equipment with entertainment systems and heart rate monitoring. Treadmills, ellipticals, bikes, and more to keep your heart healthy and strong.",
+                icon: "fas fa-running"
+            },
+            {
+                title: "Yoga Studio",
+                description: "Peaceful, dedicated space for yoga, pilates, and meditation. Natural lighting and calming atmosphere perfect for mindful movement and relaxation.",
+                icon: "fas fa-leaf"
+            },
+            {
+                title: "Group Classes",
+                description: "Energetic group fitness classes including HIIT, CrossFit, Zumba, and more. Join our community and get motivated by working out with others.",
+                icon: "fas fa-users"
+            },
+            {
+                title: "Swimming Pool",
+                description: "Olympic-size swimming pool for lap swimming, water aerobics, and aqua therapy. Perfect for low-impact cardio and full-body conditioning.",
+                icon: "fas fa-swimmer"
+            },
+            {
+                title: "Recovery Area",
+                description: "Dedicated space for stretching, foam rolling, and recovery. Includes sauna, massage therapy rooms, and relaxation areas for post-workout recovery.",
+                icon: "fas fa-spa"
+            },
+            {
+                title: "Nutrition Bar",
+                description: "Healthy smoothies, protein shakes, and nutritious snacks. Our nutrition experts can help you fuel your workouts and recovery properly.",
+                icon: "fas fa-utensils"
+            },
+            {
+                title: "Success Stories",
+                description: "Wall of fame showcasing our members' incredible transformations and achievements. Get inspired by real people who achieved their fitness goals at FitZone.",
+                icon: "fas fa-trophy"
+            }
+        ];
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeAnimations();
+            loadTestimonial();
+            setupMobileMenu();
+        });
+
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            const activeLink = document.querySelector(`[onclick="showPage('${pageId}')"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Reinitialize animations for the new page
+            setTimeout(() => {
+                initializeAnimations();
+            }, 100);
+            
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        // Animation initialization
+        function initializeAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animation elements
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Mobile menu
+        function setupMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Course filtering
+        function filterCourses(category) {
+            const courseCards = document.querySelectorAll('.course-card');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            // Update button styles
+            filterBtns.forEach(btn => {
+                btn.classList.remove('bg-red-500', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+            event.target.classList.add('bg-red-500', 'text-white');
+            
+            // Filter courses
+            courseCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.classList.add('fade-in', 'visible');
+                    }, 100);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Gallery lightbox
+        function openLightbox(index) {
+            const lightbox = document.getElementById('lightbox');
+            const content = document.getElementById('lightbox-content');
+            const item = galleryItems[index];
+            
+            content.innerHTML = `
+                <div class="text-center">
+                    <i class="${item.icon} text-6xl mb-6 text-white"></i>
+                    <h3 class="text-3xl font-bold mb-4">${item.title}</h3>
+                    <p class="text-lg text-gray-300 max-w-2xl mx-auto">${item.description}</p>
+                </div>
+            `;
+            
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        function playVideo() {
+            alert('Virtual tour video would play here! This is a demo version.');
+        }
+
+        // Testimonials carousel
+        function loadTestimonial() {
+            const container = document.getElementById('testimonial-container');
+            const testimonial = testimonials[currentTestimonial];
+            
+            container.innerHTML = `
+                <div class="testimonial-card text-center">
+                    <div class="mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-user text-white text-2xl"></i>
+                        </div>
+                        <div class="text-yellow-400 text-2xl mb-4">
+                            ${Array(testimonial.rating).fill('<i class="fas fa-star"></i>').join('')}
+                        </div>
+                    </div>
+                    <blockquote class="text-xl text-gray-600 italic mb-6 leading-relaxed">
+                        "${testimonial.text}"
+                    </blockquote>
+                    <div class="border-t pt-6">
+                        <h4 class="text-xl font-bold text-gray-800">${testimonial.name}</h4>
+                        <p class="text-gray-500">${testimonial.role}</p>
+                        <div class="mt-2 inline-block bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-semibold">
+                            ${testimonial.achievement}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            loadTestimonial();
+        }
+
+        function previousTestimonial() {
+            currentTestimonial = currentTestimonial === 0 ? testimonials.length - 1 : currentTestimonial - 1;
+            loadTestimonial();
+        }
+
+        // FAQ functionality
+        function toggleFAQ(index) {
+            const questions = document.querySelectorAll('.faq-question');
+            const answers = document.querySelectorAll('.faq-answer');
+            const icons = document.querySelectorAll('.faq-question i');
+            
+            // Close all other FAQs
+            answers.forEach((answer, i) => {
+                if (i !== index) {
+                    answer.classList.remove('open');
+                    icons[i].style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current FAQ
+            const currentAnswer = answers[index];
+            const currentIcon = icons[index];
+            
+            if (currentAnswer.classList.contains('open')) {
+                currentAnswer.classList.remove('open');
+                currentIcon.style.transform = 'rotate(0deg)';
+            } else {
+                currentAnswer.classList.add('open');
+                currentIcon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Contact form
+        function submitContactForm(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const messageDiv = document.getElementById('form-message');
+            
+            // Simulate form submission
+            messageDiv.innerHTML = '<div class="bg-green-100 text-green-700 p-4 rounded-lg"><i class="fas fa-check-circle mr-2"></i>Thank you for your message! We\'ll get back to you within 24 hours.</div>';
+            messageDiv.classList.remove('hidden');
+            
+            // Reset form
+            event.target.reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Auto-advance testimonials
+        setInterval(nextTestimonial, 8000);
+
+        // Smooth scrolling for anchor links
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('a[href^="#"]')) {
+                e.preventDefault();
+                const target = document.querySelector(e.target.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+
+        // Close lightbox on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox on background click
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'979d4b64219f1ee3',t:'MTc1Njk4Njg5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
