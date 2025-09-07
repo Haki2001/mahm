@@ -1,74 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FitZone - Transform Your Body, Transform Your Life</title>
-    <meta name="description" content="Professional fitness center offering personalized training, group classes, and nutrition guidance. Join FitZone today!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <br> <br>
+    <title>Iraq_Fit8 - حول جسمك، حول حياتك</title>
+    <meta name="description"
+        content="مركز لياقة بدنية احترافي يقدم تدريب شخصي، دروس جماعية، وإرشاد غذائي. انضم إلى Iraq_Fit8 اليوم!">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
+
         * {
             font-family: 'Inter', sans-serif;
         }
-        
+
         .hero-gradient {
             background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #4b5563 100%);
         }
-        
+
         .accent-gradient {
             background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
         }
-        
+
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease;
         }
-        
+
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .slide-in-left {
             opacity: 0;
             transform: translateX(-50px);
             transition: all 0.8s ease;
         }
-        
+
         .slide-in-left.visible {
             opacity: 1;
             transform: translateX(0);
         }
-        
+
         .slide-in-right {
             opacity: 0;
             transform: translateX(50px);
             transition: all 0.8s ease;
         }
-        
+
         .slide-in-right.visible {
             opacity: 1;
             transform: translateX(0);
         }
-        
+
         .hover-lift {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .hover-lift:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
-        
+
         .nav-link {
             position: relative;
             transition: color 0.3s ease;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -76,23 +78,23 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background: #ef4444;
+            background: #3b82f6;
             transition: width 0.3s ease;
         }
-        
+
         .nav-link:hover::after,
         .nav-link.active::after {
             width: 100%;
         }
-        
+
         .page {
             display: none;
         }
-        
+
         .page.active {
             display: block;
         }
-        
+
         .lightbox {
             display: none;
             position: fixed;
@@ -100,78 +102,134 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0, 0, 0, 0.9);
             z-index: 1000;
             justify-content: center;
             align-items: center;
         }
-        
+
         .lightbox.active {
             display: flex;
         }
-        
+
         .testimonial-card {
             min-height: 200px;
             transition: all 0.5s ease;
         }
-        
+
         .faq-answer {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
         }
-        
+
         .faq-answer.open {
             max-height: 200px;
         }
-        
+
         .pulse-animation {
             animation: pulse 2s infinite;
         }
-        
+
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
         }
-        
+
         .typing-animation {
             overflow: hidden;
             border-right: 2px solid #ef4444;
             white-space: nowrap;
             animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
         }
-        
+
         @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
         }
-        
+
         @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: #ef4444; }
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: #ef4444;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50">
+
+<body class="bg-gradient-to-br from-slate-50 to-blue-50">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white shadow-lg z-50 transition-all duration-300">
+    <nav
+        class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-xl z-50 transition-all duration-300 border-b border-blue-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <div class="text-2xl font-bold text-gray-800">
-                        <span class="text-red-500">Fit</span>Zone
+                    <div class="text-2xl font-bold text-slate-800 cursor-pointer" onclick="logoClick()" id="logo">
+                        <span class="text-blue-600">Iraq</span>_Fit8
                     </div>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium active" onclick="showPage('home')">Home</a>
-                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium" onclick="showPage('about')">About</a>
-                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium" onclick="showPage('courses')">Courses</a>
-                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium" onclick="showPage('pricing')">Pricing</a>
-                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium" onclick="showPage('gallery')">Gallery</a>
-                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium" onclick="showPage('testimonials')">Reviews</a>
-                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium" onclick="showPage('faq')">FAQ</a>
-                        <a href="#" class="nav-link text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-medium" onclick="showPage('contact')">Contact</a>
+                <div class=,"block","hidden md:block">
+                    <div
+                        class="bg-gradient-to-r from-blue-50 to-blue-100 border-2 border-blue-200 rounded-2xl px-6 py-3 shadow-lg backdrop-blur-sm">
+                        <div class="flex items-center space-x-6">
+                            <a href="#"
+                                class="nav-link text-slate-700 hover:text-blue-600 px-3 py-2 text-sm font-medium active transition-all duration-300 hover:bg-white hover:rounded-lg hover:shadow-md"
+                                onclick="showPage('home')">الرئيسية</a>
+                            <a href="#"
+                                class="nav-link text-slate-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:rounded-lg hover:shadow-md"
+                                onclick="showPage('about')">من أنا؟</a>
+                            <a href="#"
+                                class="nav-link text-slate-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:rounded-lg hover:shadow-md"
+                                onclick="showPage('courses')">البرامج</a>
+                            <a href="#"
+                                class="nav-link text-slate-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:rounded-lg hover:shadow-md"
+                                onclick="showPage('pricing')">الأسعار</a>
+                            <a href="#"
+                                class="nav-link text-slate-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:rounded-lg hover:shadow-md"
+                                onclick="showPage('transformations')">تطورات المشتركين</a>
+                            <a href="#"
+                                class="nav-link text-slate-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:rounded-lg hover:shadow-md"
+                                onclick="showPage('gallery')">المعرض</a>
+                            <a href="#"
+                                class="nav-link text-slate-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:rounded-lg hover:shadow-md"
+                                onclick="showPage('faq')">الأسئلة الشائعة</a>
+                            <a href="#"
+                                class="nav-link text-slate-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:rounded-lg hover:shadow-md"
+                                onclick="showPage('contact')">اتصل بنا</a>
+                            <button onclick="toggleEditMode()"
+                                class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-2 rounded-lg text-sm font-medium transition-colors"
+                                id="edit-btn" style="display: none;">
+                                <i class="fas fa-edit mr-1"></i>تحرير
+                            </button>
+                            <!-- زر تحرير مخفي - انقر 5 مرات على الشعار لإظهاره -->
+                            <button onclick="showOwnerLogin()"
+                                class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors hidden"
+                                id="owner-login-btn">
+                                <i class="fas fa-key mr-1"></i>دخول المالك
+                            </button>
+                            <button onclick="logoutOwner()"
+                                class="bg-red-200 hover:bg-red-300 text-red-700 px-3 py-2 rounded-lg text-sm font-medium transition-colors hidden"
+                                id="logout-btn">
+                                <i class="fas fa-sign-out-alt mr-1"></i>خروج
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="md:hidden">
@@ -182,16 +240,33 @@
             </div>
         </div>
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('home')">Home</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('about')">About</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('courses')">Courses</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('pricing')">Pricing</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('gallery')">Gallery</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('testimonials')">Reviews</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('faq')">FAQ</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-red-500" onclick="showPage('contact')">Contact</a>
+        <div id="mobile-menu"
+            class="md:hidden hidden bg-gradient-to-b from-blue-50 to-white border-t border-blue-200 shadow-lg">
+            <div class="px-4 pt-4 pb-6 space-y-2">
+                <a href="#"
+                    class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white rounded-lg transition-all duration-300 shadow-sm"
+                    onclick="showPage('home')">الرئيسية</a>
+                <a href="#"
+                    class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white rounded-lg transition-all duration-300 shadow-sm"
+                    onclick="showPage('about')">من أنا؟</a>
+                <a href="#"
+                    class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white rounded-lg transition-all duration-300 shadow-sm"
+                    onclick="showPage('courses')">البرامج</a>
+                <a href="#"
+                    class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white rounded-lg transition-all duration-300 shadow-sm"
+                    onclick="showPage('pricing')">الأسعار</a>
+                <a href="#"
+                    class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white rounded-lg transition-all duration-300 shadow-sm"
+                    onclick="showPage('transformations')">تطورات المشتركين</a>
+                <a href="#"
+                    class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white rounded-lg transition-all duration-300 shadow-sm"
+                    onclick="showPage('gallery')">المعرض</a>
+                <a href="#"
+                    class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white rounded-lg transition-all duration-300 shadow-sm"
+                    onclick="showPage('faq')">الأسئلة الشائعة</a>
+                <a href="#"
+                    class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-white rounded-lg transition-all duration-300 shadow-sm"
+                    onclick="showPage('contact')">اتصل بنا</a>
             </div>
         </div>
     </nav>
@@ -199,54 +274,75 @@
     <!-- Home Page -->
     <div id="home" class="page active">
         <!-- Hero Section -->
-        <section class="hero-gradient min-h-screen flex items-center justify-center text-white relative overflow-hidden">
-            <div class="absolute inset-0 bg-black opacity-20"></div>
+        <section class="hero-gradient min-h-screen flex items-center justify-center text-white relative overflow-hidden"
+            style="background-image: url('image/iraqq.jpg'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-black opacity-60"></div>
             <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 fade-in">
-                    Transform Your <span class="text-red-500 typing-animation">Body</span>
+                    <span data-editable="heroTitle">حول جسمك</span><span class="text-blue-400 typing-animation"
+                        data-editable="heroSubtitle"> حول حياتك</span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 fade-in" style="animation-delay: 0.5s;">
-                    Join FitZone and discover the strongest version of yourself
+                <p class="text-xl md:text-2xl mb-6 fade-in" style="animation-delay: 0.5s;"
+                    data-editable="heroDescription">
+                    انضم إلى Iraq_Fit8 واكتشف أقوى نسخة من نفسك
                 </p>
+
+                <!-- Opening Date Announcement -->
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 mb-8 fade-in max-w-2xl mx-auto"
+                    style="animation-delay: 0.7s;">
+                    <div class="text-center">
+                        <div class="text-3xl mb-3">📅</div>
+                        <h3 class="text-xl font-bold text-yellow-300 mb-2">موعد مهم</h3>
+                        <p class="text-lg font-semibold mb-2" data-editable="openingDate">الافتتاح يوم الجمعة 29 من
+                            الشهر الحالي</p>
+                        <p class="text-sm text-blue-100" data-editable="openingNote">احجز مكانك مبكراً لضمان متابعة
+                            دقيقة لكل مشترك</p>
+                    </div>
+                </div>
                 <div class="space-x-4 fade-in" style="animation-delay: 1s;">
-                    <button onclick="showPage('courses')" class="accent-gradient text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-300 pulse-animation">
-                        Start Your Journey
+                    <button onclick="showPage('courses')"
+                        class="accent-gradient text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-300 pulse-animation">
+                        ابدأ رحلتك
                     </button>
-                    <button onclick="showPage('about')" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-gray-800 transition-all duration-300">
-                        Learn More
+                    <button onclick="showPage('about')"
+                        class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-gray-800 transition-all duration-300">
+                        اعرف المزيد
                     </button>
                 </div>
             </div>
         </section>
 
         <!-- Quick Overview -->
-        <section class="py-20 bg-white">
+        <section class="py-20 bg-gradient-to-b from-white to-slate-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-gray-800 mb-4 fade-in">Why Choose FitZone?</h2>
-                    <p class="text-xl text-gray-600 fade-in">Your fitness journey starts with the right foundation</p>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4 fade-in">لماذا تختار Iraq_Fit8؟</h2>
+                    <p class="text-xl text-gray-600 fade-in">رحلة لياقتك البدنية تبدأ بالأساس الصحيح</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="text-center hover-lift fade-in">
-                        <div class="w-20 h-20 accent-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div
+                            class="w-20 h-20 accent-gradient rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                             <i class="fas fa-dumbbell text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl font-semibold mb-4">Expert Trainers</h3>
-                        <p class="text-gray-600">Certified professionals dedicated to your success</p>
+                        <h3 class="text-2xl font-semibold mb-4">مدربين خبراء</h3>
+                        <p class="text-gray-600">محترفين معتمدين مكرسين لنجاحك</p>
                     </div>
                     <div class="text-center hover-lift fade-in" style="animation-delay: 0.2s;">
-                        <div class="w-20 h-20 accent-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div
+                            class="w-20 h-20 accent-gradient rounded-full flex items-center justify-center mx-auto mb-6">
                             <i class="fas fa-clock text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl font-semibold mb-4">Flexible Schedule</h3>
-                        <p class="text-gray-600">Train when it works for you, 24/7 access</p>
+                        <h3 class="text-2xl font-semibold mb-4">جدول مرن</h3>
+                        <p class="text-gray-600">تمرن متى يناسبك، وصول على مدار الساعة</p>
                     </div>
                     <div class="text-center hover-lift fade-in" style="animation-delay: 0.4s;">
-                        <div class="w-20 h-20 accent-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div
+                            class="w-20 h-20 accent-gradient rounded-full flex items-center justify-center mx-auto mb-6">
                             <i class="fas fa-trophy text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl font-semibold mb-4">Proven Results</h3>
-                        <p class="text-gray-600">Join thousands who've achieved their goals</p>
+                        <h3 class="text-2xl font-semibold mb-4">نتائج مثبتة</h3>
+                        <p class="text-gray-600">انضم للآلاف الذين حققوا أهدافهم</p>
                     </div>
                 </div>
             </div>
@@ -255,130 +351,178 @@
 
     <!-- About Page -->
     <div id="about" class="page">
-        <section class="pt-24 pb-20 bg-gray-50">
+        <section class="pt-24 pb-20 bg-gradient-to-br from-slate-50 to-blue-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">About FitZone</h1>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
-                        Founded in 2015, FitZone has been transforming lives through fitness, nutrition, and community support.
+                    <h1 class="text-5xl font-bold text-slate-800 mb-6 fade-in">من أنا؟</h1>
+                    <p class="text-xl text-slate-600 max-w-3xl mx-auto fade-in">
+                        مرحبًا بك في عالمي الرياضي، حيث تبدأ رحلتك نحو اللياقة، القوة، والتغيير الحقيقي
                     </p>
                 </div>
 
-                <!-- Mission Section -->
+                <!-- Personal Introduction -->
                 <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
                     <div class="slide-in-left">
-                        <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Mission</h2>
-                        <p class="text-gray-600 mb-6">
-                            At FitZone, we believe fitness is not just about physical transformation—it's about building confidence, 
-                            creating healthy habits, and fostering a supportive community where everyone can thrive.
-                        </p>
-                        <p class="text-gray-600">
-                            Our state-of-the-art facility, expert trainers, and personalized approach ensure that every member 
-                            receives the guidance and motivation they need to achieve their unique fitness goals.
-                        </p>
+                        <div class="bg-white rounded-2xl shadow-xl p-8">
+                            <div
+                                class="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-user text-white text-4xl"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-slate-800 mb-4 text-center" data-editable="trainerName">
+                                المدرب عراق محمد</h2>
+                            <div class="text-center mb-6">
+                                <span
+                                    class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold">مواليد
+                                    1992</span>
+                                <span
+                                    class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold mr-2">12+
+                                    سنة خبرة</span>
+                            </div>
+                            <p class="text-slate-600 text-center leading-relaxed" data-editable="trainerBio">
+                                مدرّب لياقة بدنية معتمد، أمتلك شغفًا لا ينطفئ بالرياضة، وخبرة تمتد لأكثر من 12 عامًا في
+                                مجال التدريب الرياضي والصحة البدنية
+                            </p>
+                        </div>
                     </div>
                     <div class="slide-in-right">
-                        <div class="bg-gradient-to-br from-red-500 to-red-600 rounded-lg p-8 text-white">
+                        <div class="bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl p-8 text-white">
+                            <h3 class="text-2xl font-bold mb-6">إحصائيات المسيرة</h3>
                             <div class="grid grid-cols-2 gap-6 text-center">
                                 <div>
-                                    <div class="text-3xl font-bold">5000+</div>
-                                    <div class="text-red-100">Happy Members</div>
+                                    <div class="text-3xl font-bold">500+</div>
+                                    <div class="text-blue-100">متدرب</div>
                                 </div>
                                 <div>
-                                    <div class="text-3xl font-bold">50+</div>
-                                    <div class="text-red-100">Expert Trainers</div>
+                                    <div class="text-3xl font-bold">12</div>
+                                    <div class="text-blue-100">سنة خبرة</div>
                                 </div>
                                 <div>
-                                    <div class="text-3xl font-bold">8</div>
-                                    <div class="text-red-100">Years Experience</div>
+                                    <div class="text-3xl font-bold">100%</div>
+                                    <div class="text-blue-100">معدل النجاح</div>
                                 </div>
                                 <div>
-                                    <div class="text-3xl font-bold">24/7</div>
-                                    <div class="text-red-100">Access</div>
+                                    <div class="text-3xl font-bold">24/24</div>
+                                    <div class="text-blue-100">متابعة</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Trainers Section -->
+                <!-- About Me Section -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 mb-20 fade-in">
+                    <h2 class="text-3xl font-bold text-slate-800 mb-8 text-center">نبذة عني</h2>
+                    <div class="prose prose-lg max-w-none text-slate-600 leading-relaxed">
+                        <p class="mb-6">
+                            بدأ شغفي بالرياضة منذ سنواتي الأولى، وتحول مع الوقت إلى مسار مهني عميق ومثمر. خلال مسيرتي،
+                            عملت مع مئات المتدرّبين من مختلف الأعمار والقدرات، وساعدتهم على الوصول لأهدافهم بثقة
+                            وفعالية، سواء كان الهدف تحسين اللياقة، بناء كتلة عضلية، خسارة الوزن، أو حتى الاستشفاء بعد
+                            الإصابات.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Qualifications -->
                 <div class="mb-20">
-                    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12 fade-in">Meet Our Trainers</h2>
+                    <h2 class="text-4xl font-bold text-center text-slate-800 mb-12 fade-in">المؤهلات والخبرة</h2>
                     <div class="grid md:grid-cols-3 gap-8">
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in">
-                            <div class="h-64 bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center">
-                                <i class="fas fa-user text-white text-6xl"></i>
+                        <div class="bg-white rounded-2xl shadow-xl p-8 hover-lift fade-in text-center">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-certificate text-white text-xl"></i>
                             </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-semibold mb-2">Sarah Johnson</h3>
-                                <p class="text-red-500 mb-3">Head Trainer & Nutritionist</p>
-                                <p class="text-gray-600 text-sm">
-                                    10+ years experience in strength training and nutrition coaching. 
-                                    Specializes in weight loss and muscle building programs.
-                                </p>
-                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4">الخبرة العملية</h3>
+                            <p class="text-slate-600">أكثر من 12 عامًا من التدريب العملي مع مئات المتدربين</p>
                         </div>
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" style="animation-delay: 0.2s;">
-                            <div class="h-64 bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center">
-                                <i class="fas fa-user text-white text-6xl"></i>
+                        <div class="bg-white rounded-2xl shadow-xl p-8 hover-lift fade-in text-center"
+                            style="animation-delay: 0.2s;">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-clipboard-list text-white text-xl"></i>
                             </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-semibold mb-2">Mike Rodriguez</h3>
-                                <p class="text-red-500 mb-3">CrossFit & HIIT Specialist</p>
-                                <p class="text-gray-600 text-sm">
-                                    Former competitive athlete with expertise in high-intensity training 
-                                    and functional fitness movements.
-                                </p>
-                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4">البرامج المخصصة</h3>
+                            <p class="text-slate-600">تصميم خطط تدريب فردية وجماعية باحترافية عالية</p>
                         </div>
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
-                            <div class="h-64 bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center">
-                                <i class="fas fa-user text-white text-6xl"></i>
+                        <div class="bg-white rounded-2xl shadow-xl p-8 hover-lift fade-in text-center"
+                            style="animation-delay: 0.4s;">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-700 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-laptop text-white text-xl"></i>
                             </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-semibold mb-2">Emma Chen</h3>
-                                <p class="text-red-500 mb-3">Yoga & Pilates Instructor</p>
-                                <p class="text-gray-600 text-sm">
-                                    Certified yoga instructor focusing on flexibility, mindfulness, 
-                                    and core strengthening through Pilates and yoga practices.
-                                </p>
-                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4">التدريب عن بُعد</h3>
+                            <p class="text-slate-600">تقديم برامج تدريب عن بُعد بإشراف مباشر ومتابعة مستمرة</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Timeline -->
-                <div class="bg-white rounded-lg shadow-lg p-8">
-                    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 fade-in">Our Journey</h2>
-                    <div class="space-y-8">
-                        <div class="flex items-center slide-in-left">
-                            <div class="w-4 h-4 bg-red-500 rounded-full mr-6"></div>
-                            <div>
-                                <h3 class="text-xl font-semibold">2015 - Founded</h3>
-                                <p class="text-gray-600">FitZone opened its doors with a vision to make fitness accessible to everyone</p>
-                            </div>
+                <!-- Vision & Services -->
+                <div class="grid md:grid-cols-2 gap-12 mb-20">
+                    <div class="bg-white rounded-2xl shadow-xl p-8 fade-in">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-6">رؤيتي</h3>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            اللياقة البدنية ليست هدفًا مؤقتًا، بل أسلوب حياة مستدام. أؤمن بأن كل إنسان قادر على التغيير
+                            متى ما وجد الدعم المناسب والخطة الصحيحة.
+                        </p>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <p class="text-blue-800 font-semibold text-center">
+                                "لأنني لا أقدّم لك تمرينًا فقط، بل أسلوب حياة"
+                            </p>
                         </div>
-                        <div class="flex items-center slide-in-right">
-                            <div class="w-4 h-4 bg-red-500 rounded-full mr-6"></div>
-                            <div>
-                                <h3 class="text-xl font-semibold">2018 - Expansion</h3>
-                                <p class="text-gray-600">Added specialized training areas and nutrition counseling services</p>
-                            </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-xl p-8 fade-in" style="animation-delay: 0.2s;">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-6">ماذا أقدّم لك؟</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 ml-3 text-lg"></i>
+                                <span class="text-slate-600">برامج تدريب فردية مخصصة لهدفك</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 ml-3 text-lg"></i>
+                                <span class="text-slate-600">تدريب جماعي وحصص مكثّفة</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 ml-3 text-lg"></i>
+                                <span class="text-slate-600">خطط غذائية مبنية على أسس علمية</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 ml-3 text-lg"></i>
+                                <span class="text-slate-600">متابعة دورية وتقييم مستمر للنتائج</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 ml-3 text-lg"></i>
+                                <span class="text-slate-600">تدريب أونلاين للمتدربين عن بُعد</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Why Choose Me -->
+                <div
+                    class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl shadow-xl p-8 text-white text-center fade-in">
+                    <h3 class="text-3xl font-bold mb-8">لماذا تختارني؟</h3>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div>
+                            <i class="fas fa-heart text-4xl mb-4 text-blue-200"></i>
+                            <h4 class="text-xl font-bold mb-3">لأنني أرافقك في رحلتك</h4>
+                            <p class="text-blue-100">خطوة بخطوة حتى تصل لهدفك</p>
                         </div>
-                        <div class="flex items-center slide-in-left">
-                            <div class="w-4 h-4 bg-red-500 rounded-full mr-6"></div>
-                            <div>
-                                <h3 class="text-xl font-semibold">2021 - Digital Integration</h3>
-                                <p class="text-gray-600">Launched virtual training programs and mobile app for members</p>
-                            </div>
+                        <div>
+                            <i class="fas fa-trophy text-4xl mb-4 text-blue-200"></i>
+                            <h4 class="text-xl font-bold mb-3">لأنني أؤمن بك</h4>
+                            <p class="text-blue-100">حتى قبل أن تؤمن بنفسك</p>
                         </div>
-                        <div class="flex items-center slide-in-right">
-                            <div class="w-4 h-4 bg-red-500 rounded-full mr-6"></div>
-                            <div>
-                                <h3 class="text-xl font-semibold">2023 - Community Focus</h3>
-                                <p class="text-gray-600">Reached 5000+ members and became the leading fitness center in the region</p>
-                            </div>
+                        <div>
+                            <i class="fas fa-rocket text-4xl mb-4 text-blue-200"></i>
+                            <h4 class="text-xl font-bold mb-3">لأنني أقدم أسلوب حياة</h4>
+                            <p class="text-blue-100">وليس مجرد تمارين رياضية</p>
                         </div>
+                    </div>
+                    <div class="mt-8">
+                        <button onclick="showPage('contact')"
+                            class="bg-white text-blue-600 px-8 py-4 rounded-full font-bold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105">
+                            فلنبدأ معًا!
+                        </button>
                     </div>
                 </div>
             </div>
@@ -387,174 +531,216 @@
 
     <!-- Courses Page -->
     <div id="courses" class="page">
-        <section class="pt-24 pb-20 bg-gray-50">
+        <section class="pt-24 pb-20 bg-gradient-to-br from-slate-50 to-blue-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">Our Programs</h1>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
-                        Choose from our diverse range of fitness programs designed for all levels and goals
+                    <h1 class="text-5xl font-bold text-slate-800 mb-6 fade-in">برامج التدريب</h1>
+                    <p class="text-xl text-slate-600 max-w-3xl mx-auto fade-in">
+                        اختر من مجموعة متنوعة من برامج اللياقة البدنية المصممة لجميع المستويات والأهداف
                     </p>
                 </div>
 
                 <!-- Filter Buttons -->
                 <div class="flex flex-wrap justify-center gap-4 mb-12">
-                    <button onclick="filterCourses('all')" class="filter-btn bg-red-500 text-white px-6 py-2 rounded-full font-medium hover:bg-red-600 transition-colors">
-                        All Programs
+                    <button onclick="filterCourses('all')"
+                        class="filter-btn bg-blue-500 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-600 transition-colors">
+                        جميع البرامج
                     </button>
-                    <button onclick="filterCourses('strength')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-300 transition-colors">
-                        Strength Training
+                    <button onclick="filterCourses('strength')"
+                        class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                        تدريب القوة
                     </button>
-                    <button onclick="filterCourses('cardio')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-300 transition-colors">
-                        Cardio
+                    <button onclick="filterCourses('cardio')"
+                        class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                        الكارديو
                     </button>
-                    <button onclick="filterCourses('flexibility')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-300 transition-colors">
-                        Flexibility
+                    <button onclick="filterCourses('flexibility')"
+                        class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                        المرونة
                     </button>
-                    <button onclick="filterCourses('group')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-300 transition-colors">
-                        Group Classes
+                    <button onclick="filterCourses('group')"
+                        class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                        الحصص الجماعية
                     </button>
                 </div>
 
                 <!-- Courses Grid -->
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="courses-grid">
                     <!-- Strength Training -->
-                    <div class="course-card bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" data-category="strength">
-                        <div class="h-48 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
-                            <i class="fas fa-dumbbell text-white text-4xl"></i>
+                    <div class="course-card bg-white rounded-2xl shadow-xl overflow-hidden hover-lift fade-in"
+                        data-category="strength">
+                        <div class="h-48 bg-cover bg-center relative"
+                            style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                                <i class="fas fa-dumbbell text-white text-4xl"></i>
+                            </div>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-3">
-                                <h3 class="text-xl font-semibold">Personal Training</h3>
-                                <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-sm">1-on-1</span>
+                                <h3 class="text-xl font-semibold text-slate-800">التدريب الشخصي</h3>
+                                <span
+                                    class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-semibold">فردي</span>
                             </div>
-                            <p class="text-gray-600 mb-4">
-                                Customized strength training program with dedicated personal trainer
+                            <p class="text-slate-600 mb-4">
+                                برنامج تدريب قوة مخصص مع مدرب شخصي متخصص
                             </p>
-                            <div class="space-y-2 text-sm text-gray-500 mb-4">
-                                <div><i class="fas fa-clock mr-2"></i>60 minutes</div>
-                                <div><i class="fas fa-user mr-2"></i>Trainer: Sarah Johnson</div>
-                                <div><i class="fas fa-calendar mr-2"></i>Flexible scheduling</div>
+                            <div class="space-y-2 text-sm text-slate-500 mb-4">
+                                <div><i class="fas fa-clock ml-2 text-blue-500"></i>60 دقيقة</div>
+                                <div><i class="fas fa-user ml-2 text-blue-500"></i>المدرب: عراق محمد</div>
+                                <div><i class="fas fa-calendar ml-2 text-blue-500"></i>جدولة مرنة</div>
                             </div>
-                            <button class="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-colors">
-                                Book Session
+                            <button
+                                class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                                احجز جلسة
                             </button>
                         </div>
                     </div>
 
                     <!-- Cardio -->
-                    <div class="course-card bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" data-category="cardio" style="animation-delay: 0.1s;">
-                        <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-                            <i class="fas fa-running text-white text-4xl"></i>
+                    <div class="course-card bg-white rounded-2xl shadow-xl overflow-hidden hover-lift fade-in"
+                        data-category="cardio" style="animation-delay: 0.1s;">
+                        <div class="h-48 bg-cover bg-center relative"
+                            style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                                <i class="fas fa-running text-white text-4xl"></i>
+                            </div>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-3">
-                                <h3 class="text-xl font-semibold">HIIT Training</h3>
-                                <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-sm">Group</span>
+                                <h3 class="text-xl font-semibold text-slate-800">تدريب HIIT</h3>
+                                <span
+                                    class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-semibold">جماعي</span>
                             </div>
-                            <p class="text-gray-600 mb-4">
-                                High-intensity interval training for maximum calorie burn
+                            <p class="text-slate-600 mb-4">
+                                تدريب عالي الكثافة لحرق أقصى قدر من السعرات الحرارية
                             </p>
-                            <div class="space-y-2 text-sm text-gray-500 mb-4">
-                                <div><i class="fas fa-clock mr-2"></i>45 minutes</div>
-                                <div><i class="fas fa-user mr-2"></i>Trainer: Mike Rodriguez</div>
-                                <div><i class="fas fa-calendar mr-2"></i>Mon, Wed, Fri - 6:00 PM</div>
+                            <div class="space-y-2 text-sm text-slate-500 mb-4">
+                                <div><i class="fas fa-clock ml-2 text-green-500"></i>45 دقيقة</div>
+                                <div><i class="fas fa-user ml-2 text-green-500"></i>المدرب: عراق محمد</div>
+                                <div><i class="fas fa-calendar ml-2 text-green-500"></i>الاثنين، الأربعاء، الجمعة - 6:00
+                                    م</div>
                             </div>
-                            <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors">
-                                Join Class
+                            <button
+                                class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                                انضم للحصة
                             </button>
                         </div>
                     </div>
 
                     <!-- Flexibility -->
-                    <div class="course-card bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" data-category="flexibility" style="animation-delay: 0.2s;">
-                        <div class="h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
-                            <i class="fas fa-leaf text-white text-4xl"></i>
+                    <div class="course-card bg-white rounded-2xl shadow-xl overflow-hidden hover-lift fade-in"
+                        data-category="flexibility" style="animation-delay: 0.2s;">
+                        <div class="h-48 bg-cover bg-center relative"
+                            style="background-image: url('image/pexels-pavel-danilyuk-6295718.jpg');">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                                <i class="fas fa-leaf text-white text-4xl"></i>
+                            </div>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-3">
-                                <h3 class="text-xl font-semibold">Yoga Flow</h3>
-                                <span class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm">Group</span>
+                                <h3 class="text-xl font-semibold text-slate-800">اليوغا والمرونة</h3>
+                                <span
+                                    class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-semibold">جماعي</span>
                             </div>
-                            <p class="text-gray-600 mb-4">
-                                Mindful movement combining strength, flexibility, and relaxation
+                            <p class="text-slate-600 mb-4">
+                                حركة واعية تجمع بين القوة والمرونة والاسترخاء
                             </p>
-                            <div class="space-y-2 text-sm text-gray-500 mb-4">
-                                <div><i class="fas fa-clock mr-2"></i>60 minutes</div>
-                                <div><i class="fas fa-user mr-2"></i>Trainer: Emma Chen</div>
-                                <div><i class="fas fa-calendar mr-2"></i>Tue, Thu - 7:00 AM</div>
+                            <div class="space-y-2 text-sm text-slate-500 mb-4">
+                                <div><i class="fas fa-clock ml-2 text-purple-500"></i>60 دقيقة</div>
+                                <div><i class="fas fa-user ml-2 text-purple-500"></i>المدرب: عراق محمد</div>
+                                <div><i class="fas fa-calendar ml-2 text-purple-500"></i>الثلاثاء، الخميس - 7:00 ص</div>
                             </div>
-                            <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors">
-                                Join Class
+                            <button
+                                class="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                                انضم للحصة
                             </button>
                         </div>
                     </div>
 
                     <!-- More courses -->
-                    <div class="course-card bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" data-category="strength" style="animation-delay: 0.3s;">
-                        <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
-                            <i class="fas fa-weight-hanging text-white text-4xl"></i>
+                    <div class="course-card bg-white rounded-2xl shadow-xl overflow-hidden hover-lift fade-in"
+                        data-category="strength" style="animation-delay: 0.3s;">
+                        <div class="h-48 bg-cover bg-center relative"
+                            style="background-image: url('https://images.unsplash.com/photo-1517963879433-6ad2b056d712?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                                <i class="fas fa-weight-hanging text-white text-4xl"></i>
+                            </div>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-3">
-                                <h3 class="text-xl font-semibold">CrossFit</h3>
-                                <span class="bg-purple-100 text-purple-600 px-2 py-1 rounded text-sm">Group</span>
+                                <h3 class="text-xl font-semibold text-slate-800">كروس فيت</h3>
+                                <span
+                                    class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-semibold">جماعي</span>
                             </div>
-                            <p class="text-gray-600 mb-4">
-                                Functional fitness combining cardio, strength, and agility
+                            <p class="text-slate-600 mb-4">
+                                تدريب وظيفي يجمع بين الكارديو والقوة والرشاقة
                             </p>
-                            <div class="space-y-2 text-sm text-gray-500 mb-4">
-                                <div><i class="fas fa-clock mr-2"></i>50 minutes</div>
-                                <div><i class="fas fa-user mr-2"></i>Trainer: Mike Rodriguez</div>
-                                <div><i class="fas fa-calendar mr-2"></i>Daily - 5:30 PM</div>
+                            <div class="space-y-2 text-sm text-slate-500 mb-4">
+                                <div><i class="fas fa-clock ml-2 text-purple-500"></i>50 دقيقة</div>
+                                <div><i class="fas fa-user ml-2 text-purple-500"></i>المدرب: عراق محمد</div>
+                                <div><i class="fas fa-calendar ml-2 text-purple-500"></i>يومياً - 5:30 م</div>
                             </div>
-                            <button class="w-full bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600 transition-colors">
-                                Join Class
+                            <button
+                                class="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                                انضم للحصة
                             </button>
                         </div>
                     </div>
 
-                    <div class="course-card bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" data-category="flexibility" style="animation-delay: 0.4s;">
-                        <div class="h-48 bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center">
-                            <i class="fas fa-heart text-white text-4xl"></i>
+                    <div class="course-card bg-white rounded-2xl shadow-xl overflow-hidden hover-lift fade-in"
+                        data-category="flexibility" style="animation-delay: 0.4s;">
+                        <div class="h-48 bg-cover bg-center relative"
+                            style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                                <i class="fas fa-heart text-white text-4xl"></i>
+                            </div>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-3">
-                                <h3 class="text-xl font-semibold">Pilates</h3>
-                                <span class="bg-pink-100 text-pink-600 px-2 py-1 rounded text-sm">Group</span>
+                                <h3 class="text-xl font-semibold text-slate-800">البيلاتس</h3>
+                                <span
+                                    class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm font-semibold">جماعي</span>
                             </div>
-                            <p class="text-gray-600 mb-4">
-                                Core-focused exercises for strength, stability, and posture
+                            <p class="text-slate-600 mb-4">
+                                تمارين تركز على العضلات الأساسية للقوة والثبات والوضعية
                             </p>
-                            <div class="space-y-2 text-sm text-gray-500 mb-4">
-                                <div><i class="fas fa-clock mr-2"></i>55 minutes</div>
-                                <div><i class="fas fa-user mr-2"></i>Trainer: Emma Chen</div>
-                                <div><i class="fas fa-calendar mr-2"></i>Mon, Wed - 8:00 AM</div>
+                            <div class="space-y-2 text-sm text-slate-500 mb-4">
+                                <div><i class="fas fa-clock ml-2 text-pink-500"></i>55 دقيقة</div>
+                                <div><i class="fas fa-user ml-2 text-pink-500"></i>المدرب: عراق محمد</div>
+                                <div><i class="fas fa-calendar ml-2 text-pink-500"></i>الاثنين، الأربعاء - 8:00 ص</div>
                             </div>
-                            <button class="w-full bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition-colors">
-                                Join Class
+                            <button
+                                class="w-full bg-gradient-to-r from-pink-500 to-pink-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                                انضم للحصة
                             </button>
                         </div>
                     </div>
 
-                    <div class="course-card bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in" data-category="group" style="animation-delay: 0.5s;">
-                        <div class="h-48 bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
-                            <i class="fas fa-users text-white text-4xl"></i>
+                    <div class="course-card bg-white rounded-2xl shadow-xl overflow-hidden hover-lift fade-in"
+                        data-category="group" style="animation-delay: 0.5s;">
+                        <div class="h-48 bg-cover bg-center relative"
+                            style="background-image: url('https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                                <i class="fas fa-users text-white text-4xl"></i>
+                            </div>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-3">
-                                <h3 class="text-xl font-semibold">Bootcamp</h3>
-                                <span class="bg-orange-100 text-orange-600 px-2 py-1 rounded text-sm">Group</span>
+                                <h3 class="text-xl font-semibold text-slate-800">المعسكر التدريبي</h3>
+                                <span
+                                    class="bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-sm font-semibold">جماعي</span>
                             </div>
-                            <p class="text-gray-600 mb-4">
-                                Military-style training for ultimate fitness challenge
+                            <p class="text-slate-600 mb-4">
+                                تدريب على النمط العسكري لتحدي اللياقة البدنية القصوى
                             </p>
-                            <div class="space-y-2 text-sm text-gray-500 mb-4">
-                                <div><i class="fas fa-clock mr-2"></i>45 minutes</div>
-                                <div><i class="fas fa-user mr-2"></i>Trainer: Sarah Johnson</div>
-                                <div><i class="fas fa-calendar mr-2"></i>Sat - 9:00 AM</div>
+                            <div class="space-y-2 text-sm text-slate-500 mb-4">
+                                <div><i class="fas fa-clock ml-2 text-orange-500"></i>45 دقيقة</div>
+                                <div><i class="fas fa-user ml-2 text-orange-500"></i>المدرب: عراق محمد</div>
+                                <div><i class="fas fa-calendar ml-2 text-orange-500"></i>السبت - 9:00 ص</div>
                             </div>
-                            <button class="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors">
-                                Join Class
+                            <button
+                                class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                                انضم للحصة
                             </button>
                         </div>
                     </div>
@@ -563,154 +749,521 @@
         </section>
     </div>
 
+    <!-- Package Details Page -->
+    <div id="package-details" class="page">
+        <section class="pt-24 pb-20 bg-gradient-to-br from-slate-50 to-blue-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <button onclick="showPage('pricing')"
+                        class="mb-6 text-blue-600 hover:text-blue-800 transition-colors">
+                        <i class="fas fa-arrow-right mr-2"></i>العودة للأسعار
+                    </button>
+                    <h1 id="package-title" class="text-5xl font-bold text-slate-800 mb-6 fade-in">تفاصيل الباقة</h1>
+                </div>
+
+                <div id="package-content" class="bg-white rounded-2xl shadow-xl p-8 fade-in">
+                    <!-- Content will be dynamically loaded -->
+                </div>
+            </div>
+        </section>
+    </div>
+
     <!-- Pricing Page -->
     <div id="pricing" class="page">
-        <section class="pt-24 pb-20 bg-gray-50">
+        <section class="pt-24 pb-20 bg-gradient-to-br from-slate-50 to-blue-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">Membership Plans</h1>
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">باقات الاشتراك</h1>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
-                        Choose the perfect plan that fits your lifestyle and fitness goals
+                        اختر الباقة المثالية التي تناسب نمط حياتك وأهدافك الرياضية
                     </p>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <!-- Basic Plan -->
-                    <div class="bg-white rounded-lg shadow-lg p-8 hover-lift fade-in">
+                    <!-- 3 Months Plan -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8 hover-lift fade-in border border-slate-200">
                         <div class="text-center">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Basic</h3>
-                            <div class="text-4xl font-bold text-gray-800 mb-2">$29<span class="text-lg text-gray-500">/month</span></div>
-                            <p class="text-gray-600 mb-8">Perfect for getting started</p>
+                            <div
+                                class="w-16 h-16 secondary-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-calendar-alt text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-4">اشتراك 3 أشهر</h3>
+                            <div class="text-4xl font-bold text-slate-800 mb-2">350,000<span
+                                    class="text-lg text-slate-500"> د.ع</span></div>
+                            <p class="text-slate-600 mb-8 bg-green-50 px-4 py-2 rounded-full text-sm font-medium">تمرين
+                                + تغذية</p>
                         </div>
-                        <ul class="space-y-4 mb-8">
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>Gym access during off-peak hours</span>
+                        <ul class="space-y-4 mb-8 text-right">
+                            <li class="flex items-center bg-slate-50 p-3 rounded-lg">
+                                <i class="fas fa-check-circle text-green-500 ml-3 text-lg"></i>
+                                <span class="text-slate-700">برنامج تدريبي متكامل ومتنوع</span>
                             </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>Basic equipment usage</span>
+                            <li class="flex items-center bg-slate-50 p-3 rounded-lg">
+                                <i class="fas fa-check-circle text-green-500 ml-3 text-lg"></i>
+                                <span class="text-slate-700">تدريب منزلي أو في القاعة الرياضية</span>
                             </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>Locker room access</span>
+                            <li class="flex items-center bg-slate-50 p-3 rounded-lg">
+                                <i class="fas fa-check-circle text-green-500 ml-3 text-lg"></i>
+                                <span class="text-slate-700">فيديوهات تدريبية مخصصة</span>
                             </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>Mobile app access</span>
+                            <li class="flex items-center bg-slate-50 p-3 rounded-lg">
+                                <i class="fas fa-check-circle text-green-500 ml-3 text-lg"></i>
+                                <span class="text-slate-700">تحديث شهري للبرنامج</span>
+                            </li>
+                            <li class="flex items-center bg-slate-50 p-3 rounded-lg">
+                                <i class="fas fa-check-circle text-green-500 ml-3 text-lg"></i>
+                                <span class="text-slate-700">متابعة يومية (عدا الخميس والجمعة)</span>
+                            </li>
+                            <li class="flex items-center bg-slate-50 p-3 rounded-lg">
+                                <i class="fas fa-check-circle text-green-500 ml-3 text-lg"></i>
+                                <span class="text-slate-700">دعم وتحفيز مستمر</span>
                             </li>
                         </ul>
-                        <button class="w-full bg-gray-200 text-gray-800 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
-                            Choose Basic
+                        <button onclick="showPackageDetails('3months')"
+                            class="w-full accent-gradient text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 pulse-animation transform hover:scale-105">
+                            رؤية التفاصيل
                         </button>
                     </div>
 
-                    <!-- Premium Plan (Most Popular) -->
-                    <div class="bg-white rounded-lg shadow-xl p-8 hover-lift fade-in relative border-4 border-red-500" style="animation-delay: 0.2s;">
+                    <!-- 6 Months Plan (Most Popular) -->
+                    <div class="bg-white rounded-2xl shadow-2xl p-8 hover-lift fade-in relative border-4 border-blue-500 transform scale-105"
+                        style="animation-delay: 0.2s;">
                         <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                            <span class="bg-red-500 text-white px-6 py-2 rounded-full text-sm font-semibold">Most Popular</span>
+                            <span
+                                class="accent-gradient text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">الأكثر
+                                شعبية</span>
                         </div>
                         <div class="text-center">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Premium</h3>
-                            <div class="text-4xl font-bold text-red-500 mb-2">$59<span class="text-lg text-gray-500">/month</span></div>
-                            <p class="text-gray-600 mb-8">Everything you need to succeed</p>
+                            <div
+                                class="w-16 h-16 accent-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-star text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-4">اشتراك 6 أشهر</h3>
+                            <div class="text-4xl font-bold text-blue-600 mb-2">550,000<span
+                                    class="text-lg text-slate-500"> د.ع</span></div>
+                            <p class="text-slate-600 mb-8 bg-blue-50 px-4 py-2 rounded-full text-sm font-medium">تمرين +
+                                تغذية</p>
                         </div>
-                        <ul class="space-y-4 mb-8">
+                        <ul class="space-y-4 mb-8 text-right">
                             <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>24/7 gym access</span>
+                                <i class="fas fa-check text-green-500 ml-3"></i>
+                                <span>برنامج تدريبي متكامل ومتنوع</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>All equipment & facilities</span>
+                                <i class="fas fa-check text-green-500 ml-3"></i>
+                                <span>تدريب منزلي أو في القاعة الرياضية</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>Unlimited group classes</span>
+                                <i class="fas fa-check text-green-500 ml-3"></i>
+                                <span>فيديوهات تدريبية للبنات والشباب</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>2 personal training sessions/month</span>
+                                <i class="fas fa-check text-green-500 ml-3"></i>
+                                <span>برامج مصورة مع رسوم توضيحية</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>Nutrition consultation</span>
+                                <i class="fas fa-check text-green-500 ml-3"></i>
+                                <span>تجديد شهري للبرامج</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>Guest passes (2/month)</span>
+                                <i class="fas fa-check text-green-500 ml-3"></i>
+                                <span>متابعة يومية مكثفة</span>
                             </li>
                         </ul>
-                        <button class="w-full accent-gradient text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 pulse-animation">
-                            Choose Premium
+                        <button onclick="showPackageDetails('6months')"
+                            class="w-full accent-gradient text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 pulse-animation transform hover:scale-105">
+                            رؤية التفاصيل
                         </button>
                     </div>
 
-                    <!-- Elite Plan -->
+                    <!-- Annual Plan -->
                     <div class="bg-white rounded-lg shadow-lg p-8 hover-lift fade-in" style="animation-delay: 0.4s;">
                         <div class="text-center">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Elite</h3>
-                            <div class="text-4xl font-bold text-gray-800 mb-2">$99<span class="text-lg text-gray-500">/month</span></div>
-                            <p class="text-gray-600 mb-8">Ultimate fitness experience</p>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">اشتراك سنوي</h3>
+                            <div class="text-4xl font-bold text-gray-800 mb-2">800,000<span
+                                    class="text-lg text-gray-500"> د.ع</span></div>
+                            <p class="text-gray-600 mb-8">تمرين + تغذية</p>
                         </div>
-                        <ul class="space-y-4 mb-8">
+                        <ul class="space-y-4 mb-8 text-right">
                             <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>All Premium benefits</span>
+                                <i class="fas fa-check text-green-500 ml-3"></i>
+                                <span>برنامج تدريب متجدد شهرياً</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>Unlimited personal training</span>
+                                <i class="fas fa-check text-green-500 ml-3"></i>
+                                <span>خطة تغذية قابلة للتعديل</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>Custom meal plans</span>
+                                <i class="fas fa-check text-green-500 ml-3"></i>
+                                <span>متابعة يومية على مدار العام</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>Recovery services (massage, sauna)</span>
+                                <i class="fas fa-check text-green-500 ml-3"></i>
+                                <span>دعم نفسي وتحفيز مستمر</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>Priority booking</span>
+                                <i class="fas fa-check text-green-500 ml-3"></i>
+                                <span>جدول تقييم شهري</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-3"></i>
-                                <span>Unlimited guest passes</span>
+                                <i class="fas fa-check text-green-500 ml-3"></i>
+                                <span>استثمار حقيقي بصحتك</span>
                             </li>
                         </ul>
-                        <button class="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors">
-                            Choose Elite
+                        <button onclick="showPackageDetails('12months')"
+                            class="w-full accent-gradient text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 pulse-animation transform hover:scale-105">
+                            رؤية التفاصيل
                         </button>
+                    </div>
+                </div>
+
+                <!-- VIP Package -->
+                <div class="mt-16">
+                    <div
+                        class="bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg shadow-xl p-8 max-w-4xl mx-auto text-white fade-in">
+                        <div class="text-center mb-8">
+                            <h3 class="text-3xl font-bold mb-4">باقة VIP – التدريب الشخصي</h3>
+                            <p class="text-xl">في ألفا جيم – Alpha GYM / أربيل</p>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h4 class="text-xl font-bold mb-4">شنو تشمل الباقة؟</h4>
+                                <ul class="space-y-3 text-right">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400 ml-3"></i>
+                                        <span>برنامج تدريبي شخصي داخل الجيم</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400 ml-3"></i>
+                                        <span>شرح مباشر لكل تمرين</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400 ml-3"></i>
+                                        <span>خطة تغذية تتناسب وذوقك</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400 ml-3"></i>
+                                        <span>تواجد ومتابعة مستمرة</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400 ml-3"></i>
+                                        <span>تحفيز ودعم نفسي مستمر</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                                    <p class="text-lg mb-4">إذا تحب التدريب الجاد</p>
+                                    <p class="text-2xl font-bold">هاي الباقة صممت إلك</p>
+                                    <button
+                                        class="mt-4 bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                                        تواصل معنا
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Additional Info -->
                 <div class="mt-16 text-center">
                     <div class="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto fade-in">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">All Plans Include</h3>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">ماذا تشمل جميع الباقات؟</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            جميع الباقات، سواء كانت لثلاثة أشهر أو ستة أشهر أو حتى الاشتراك السنوي، تحتوي على خدمة
+                            متابعة يومية مخصصة لك شخصياً،
+                            تتيح لك التواصل المستمر معي لمراجعة التقدم، تصحيح الأداء، والإجابة عن أي استفسارات قد تواجهك
+                            أثناء رحلتك
+                        </p>
                         <div class="grid md:grid-cols-4 gap-6">
                             <div class="text-center">
-                                <i class="fas fa-shield-alt text-red-500 text-3xl mb-3"></i>
-                                <h4 class="font-semibold mb-2">No Commitment</h4>
-                                <p class="text-sm text-gray-600">Cancel anytime</p>
-                            </div>
-                            <div class="text-center">
                                 <i class="fas fa-mobile-alt text-red-500 text-3xl mb-3"></i>
-                                <h4 class="font-semibold mb-2">Mobile App</h4>
-                                <p class="text-sm text-gray-600">Track progress</p>
+                                <h4 class="font-semibold mb-2">متابعة يومية</h4>
+                                <p class="text-sm text-gray-600">تواصل مستمر</p>
                             </div>
                             <div class="text-center">
-                                <i class="fas fa-parking text-red-500 text-3xl mb-3"></i>
-                                <h4 class="font-semibold mb-2">Free Parking</h4>
-                                <p class="text-sm text-gray-600">Convenient access</p>
+                                <i class="fas fa-dumbbell text-red-500 text-3xl mb-3"></i>
+                                <h4 class="font-semibold mb-2">برامج مخصصة</h4>
+                                <p class="text-sm text-gray-600">حسب احتياجك</p>
                             </div>
                             <div class="text-center">
-                                <i class="fas fa-wifi text-red-500 text-3xl mb-3"></i>
-                                <h4 class="font-semibold mb-2">Free WiFi</h4>
-                                <p class="text-sm text-gray-600">Stay connected</p>
+                                <i class="fas fa-apple-alt text-red-500 text-3xl mb-3"></i>
+                                <h4 class="font-semibold mb-2">خطط تغذية</h4>
+                                <p class="text-sm text-gray-600">متوازنة وصحية</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fas fa-heart text-red-500 text-3xl mb-3"></i>
+                                <h4 class="font-semibold mb-2">دعم نفسي</h4>
+                                <p class="text-sm text-gray-600">تحفيز مستمر</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Transformations Page -->
+    <div id="transformations" class="page">
+        <section class="pt-24 pb-20 bg-gradient-to-br from-slate-50 to-blue-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">تطورات المشتركين</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
+                        شاهد التحولات المذهلة لأعضائنا وقصص نجاحهم الملهمة
+                    </p>
+                </div>
+
+                <!-- Before/After Gallery -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <!-- Transformation 1 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in">
+                        <div class="relative">
+                            <div class="grid grid-cols-2">
+                                <div class="relative">
+                                    <div class="h-64 bg-cover bg-center"
+                                        style="background-image: url('image/kkkk.jpg');">
+                                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                                        تطور</div>
+                                </div>
+                                <div class="relative">
+                                    <div class="h-64 bg-cover bg-center"
+                                        style="background-image: url('image/jjjjjj.jpg');">
+                                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                                        تطور</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2"> </h3>
+                            <p class="text-gray-600 mb-3"> 6 أشهر</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>المدة: 6 أشهر</span>
+                                <span>النتيجة: - مفاجئة</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transformation 2 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in"
+                        style="animation-delay: 0.1s;">
+                        <div class="relative">
+                            <div class="grid grid-cols-2">
+                                <div class="relative">
+                                    <div class="h-64 bg-cover bg-center"
+                                        style="background-image: url('image/kkkmm.jfif');">
+                                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                                        تطور</div>
+                                </div>
+                                <div class="relative">
+                                    <div class="h-64 bg-cover bg-center"
+                                        style="background-image: url('image/ppppp.jpg');">
+                                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                                        تطور</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2"> </h3>
+                            <p class="text-gray-600 mb-3">تحسين اللياقة وبناء العضلات</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>المدة: 4 أشهر</span>
+                                <span>النتيجة: مفاجئة</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transformation 3 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in"
+                        style="animation-delay: 0.2s;">
+                        <div class="relative">
+                            <div class="grid grid-cols-2">
+                                <div class="relative">
+                                    <div class="h-64 bg-cover bg-center"
+                                        style="background-image: url('image/ms8.jpg');">
+                                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                                        تطور</div>
+                                </div>
+                                <div class="relative">
+                                    <div class="h-64 bg-cover bg-center"
+                                        style="background-image: url('image/ms7.jpg');">
+                                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                                        تطور</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2"> </h3>
+                            <p class="text-gray-600 mb-3">تحول كامل للجسم</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>المدة: 8 أشهر</span>
+                                <span>النتيجة: - مفاجئة</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transformation 4 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in"
+                        style="animation-delay: 0.3s;">
+                        <div class="relative">
+                            <div class="grid grid-cols-2">
+                                <div class="relative">
+                                    <div class="h-64 bg-cover bg-center"
+                                        style="background-image: url('image/ms6.jpg');">
+                                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                                        تطور</div>
+                                </div>
+                                <div class="relative">
+                                    <div class="h-64 bg-cover bg-center"
+                                        style="background-image: url('image/ms5.jpg');">
+                                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                                        تطور</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2"> </h3>
+                            <p class="text-gray-600 mb-3">تحسين الصحة العامة</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>المدة: 5 أشهر</span>
+                                <span>النتيجة: - مفاجئة</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transformation 5 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in"
+                        style="animation-delay: 0.4s;">
+                        <div class="relative">
+                            <div class="grid grid-cols-2">
+                                <div class="relative">
+                                    <div class="h-64 bg-cover bg-center"
+                                        style="background-image: url('image/ms4.jpg');">
+                                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                                        تطور</div>
+                                </div>
+                                <div class="relative">
+                                    <div class="h-64 bg-cover bg-center"
+                                        style="background-image: url('image/ms3.jpg');">
+                                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                                        تطور</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2"> </h3>
+                            <p class="text-gray-600 mb-3">بناء عضلات وقوة</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>المدة: 7 أشهر</span>
+                                <span>النتيجة: مفاجئة</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transformation 6 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift fade-in"
+                        style="animation-delay: 0.5s;">
+                        <div class="relative">
+                            <div class="grid grid-cols-2">
+                                <div class="relative">
+                                    <div class="h-64 bg-cover bg-center"
+                                        style="background-image: url('image/ms2.jpg');">
+                                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                                        تطور</div>
+                                </div>
+                                <div class="relative">
+                                    <div class="h-64 bg-cover bg-center"
+                                        style="background-image: url('image/ms1.jpg');">
+                                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                                        تطور</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2"> </h3>
+                            <p class="text-gray-600 mb-3">تحسين اللياقة البدنية</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>المدة: 6 أشهر</span>
+                                <span>النتيجة: مفاجئة</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Stats -->
+                <div class="bg-gradient-to-r from-red-500 to-red-600 rounded-lg shadow-xl p-8 text-white mb-16 fade-in">
+                    <h2 class="text-3xl font-bold text-center mb-8">إحصائيات النجاح</h2>
+                    <div class="grid md:grid-cols-4 gap-8 text-center">
+                        <div>
+                            <div class="text-4xl font-bold mb-2">500+</div>
+                            <div class="text-red-100">تحول ناجح</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold mb-2">100%</div>
+                            <div class="text-red-100">معدل النجاح</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold mb-2">15</div>
+                            <div class="text-red-100">متوسط فقدان الوزن (كيلو)</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold mb-2">4.8</div>
+                            <div class="text-red-100">تقييم العملاء</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="text-center bg-white rounded-lg shadow-lg p-8 fade-in">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-4">هل أنت مستعد لتحولك؟</h3>
+                    <p class="text-xl text-gray-600 mb-8">
+                        انضم إلى مئات الأشخاص الذين غيروا حياتهم مع Iraq_Fit8
+                    </p>
+                    <div class="space-x-4">
+                        <button onclick="showPage('pricing')"
+                            class="accent-gradient text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-300 pulse-animation">
+                            ابدأ رحلتك الآن
+                        </button>
+                        <button onclick="showPage('contact')"
+                            class="border-2 border-red-500 text-red-500 px-8 py-4 rounded-full font-semibold hover:bg-red-500 hover:text-white transition-all duration-300">
+                            تواصل معنا
+                        </button>
                     </div>
                 </div>
             </div>
@@ -719,63 +1272,87 @@
 
     <!-- Gallery Page -->
     <div id="gallery" class="page">
-        <section class="pt-24 pb-20 bg-gray-50">
+        <section class="pt-24 pb-20 bg-gradient-to-br from-slate-50 to-blue-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">Gallery</h1>
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">المعرض</h1>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
-                        Take a look at our state-of-the-art facilities and vibrant community
+                        اطلع على مرافقنا المتطورة ومجتمعنا النشط والحيوي
                     </p>
                 </div>
 
                 <!-- Gallery Grid -->
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div class="gallery-item bg-gradient-to-br from-red-400 to-red-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(0)">
-                        <div class="text-center text-white">
+                    <div class="gallery-item bg-cover bg-center aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in relative"
+                        onclick="openLightbox(0)"
+                        style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg"></div>
+                        <div class="text-center text-white relative z-10">
                             <i class="fas fa-dumbbell text-4xl mb-2"></i>
-                            <p class="text-sm">Weight Training Area</p>
+                            <p class="text-sm">منطقة تدريب الأوزان</p>
                         </div>
                     </div>
-                    <div class="gallery-item bg-gradient-to-br from-blue-400 to-blue-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(1)" style="animation-delay: 0.1s;">
-                        <div class="text-center text-white">
+                    <div class="gallery-item bg-cover bg-center aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in relative"
+                        onclick="openLightbox(1)"
+                        style="animation-delay: 0.1s; background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg"></div>
+                        <div class="text-center text-white relative z-10">
                             <i class="fas fa-running text-4xl mb-2"></i>
-                            <p class="text-sm">Cardio Zone</p>
+                            <p class="text-sm">منطقة الكارديو</p>
                         </div>
                     </div>
-                    <div class="gallery-item bg-gradient-to-br from-green-400 to-green-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(2)" style="animation-delay: 0.2s;">
-                        <div class="text-center text-white">
+                    <div class="gallery-item bg-cover bg-center aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in relative"
+                        onclick="openLightbox(2)"
+                        style="animation-delay: 0.2s; background-image: url('image/pexels-pavel-danilyuk-6295718.jpg');">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg"></div>
+                        <div class="text-center text-white relative z-10">
                             <i class="fas fa-leaf text-4xl mb-2"></i>
-                            <p class="text-sm">Yoga Studio</p>
+                            <p class="text-sm">استوديو اليوغا</p>
                         </div>
                     </div>
-                    <div class="gallery-item bg-gradient-to-br from-purple-400 to-purple-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(3)" style="animation-delay: 0.3s;">
-                        <div class="text-center text-white">
+                    <div class="gallery-item bg-cover bg-center aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in relative"
+                        onclick="openLightbox(3)"
+                        style="animation-delay: 0.3s; background-image: url('https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg"></div>
+                        <div class="text-center text-white relative z-10">
                             <i class="fas fa-users text-4xl mb-2"></i>
-                            <p class="text-sm">Group Classes</p>
+                            <p class="text-sm">الحصص الجماعية</p>
                         </div>
                     </div>
-                    <div class="gallery-item bg-gradient-to-br from-orange-400 to-orange-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(4)" style="animation-delay: 0.4s;">
-                        <div class="text-center text-white">
+                    <div class="gallery-item bg-cover bg-center aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in relative"
+                        onclick="openLightbox(4)"
+                        style="animation-delay: 0.4s; background-image: url('https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg"></div>
+                        <div class="text-center text-white relative z-10">
                             <i class="fas fa-swimmer text-4xl mb-2"></i>
-                            <p class="text-sm">Swimming Pool</p>
+                            <p class="text-sm">حمام السباحة</p>
                         </div>
                     </div>
-                    <div class="gallery-item bg-gradient-to-br from-pink-400 to-pink-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(5)" style="animation-delay: 0.5s;">
-                        <div class="text-center text-white">
+                    <div class="gallery-item bg-cover bg-center aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in relative"
+                        onclick="openLightbox(5)"
+                        style="animation-delay: 0.5s; background-image: url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg"></div>
+                        <div class="text-center text-white relative z-10">
                             <i class="fas fa-spa text-4xl mb-2"></i>
-                            <p class="text-sm">Recovery Area</p>
+                            <p class="text-sm">منطقة الاستشفاء</p>
                         </div>
                     </div>
-                    <div class="gallery-item bg-gradient-to-br from-indigo-400 to-indigo-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(6)" style="animation-delay: 0.6s;">
-                        <div class="text-center text-white">
+                    <div class="gallery-item bg-cover bg-center aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in relative"
+                        onclick="openLightbox(6)"
+                        style="animation-delay: 0.6s; background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg"></div>
+                        <div class="text-center text-white relative z-10">
                             <i class="fas fa-utensils text-4xl mb-2"></i>
-                            <p class="text-sm">Nutrition Bar</p>
+                            <p class="text-sm">بار التغذية</p>
                         </div>
                     </div>
-                    <div class="gallery-item bg-gradient-to-br from-gray-400 to-gray-600 aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in" onclick="openLightbox(7)" style="animation-delay: 0.7s;">
-                        <div class="text-center text-white">
+                    <div class="gallery-item bg-cover bg-center aspect-square rounded-lg flex items-center justify-center cursor-pointer hover-lift fade-in relative"
+                        onclick="openLightbox(7)"
+                        style="animation-delay: 0.7s; background-image: url('https://images.unsplash.com/photo-1517963879433-6ad2b056d712?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 rounded-lg"></div>
+                        <div class="text-center text-white relative z-10">
                             <i class="fas fa-trophy text-4xl mb-2"></i>
-                            <p class="text-sm">Success Stories</p>
+                            <p class="text-sm">قصص النجاح</p>
                         </div>
                     </div>
                 </div>
@@ -784,9 +1361,11 @@
                 <div class="mt-16">
                     <h2 class="text-3xl font-bold text-center text-gray-800 mb-8 fade-in">Virtual Tour</h2>
                     <div class="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto fade-in">
-                        <div class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center">
+                        <div
+                            class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center">
                             <div class="text-center text-white">
-                                <i class="fas fa-play-circle text-6xl mb-4 cursor-pointer hover:text-red-500 transition-colors" onclick="playVideo()"></i>
+                                <i class="fas fa-play-circle text-6xl mb-4 cursor-pointer hover:text-red-500 transition-colors"
+                                    onclick="playVideo()"></i>
                                 <p class="text-xl">Take a Virtual Tour of FitZone</p>
                                 <p class="text-gray-300 mt-2">Click to explore our facilities</p>
                             </div>
@@ -800,234 +1379,143 @@
     <!-- Lightbox -->
     <div id="lightbox" class="lightbox">
         <div class="relative max-w-4xl max-h-full">
-            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-3xl hover:text-red-500 z-10">
+            <button onclick="closeLightbox()"
+                class="absolute top-4 right-4 text-white text-3xl hover:text-red-500 z-10">
                 <i class="fas fa-times"></i>
             </button>
-            <div id="lightbox-content" class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-12 text-center text-white">
+            <div id="lightbox-content"
+                class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-12 text-center text-white">
                 <!-- Content will be dynamically inserted -->
             </div>
         </div>
     </div>
 
-    <!-- Testimonials Page -->
-    <div id="testimonials" class="page">
-        <section class="pt-24 pb-20 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">What Our Members Say</h1>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
-                        Real stories from real people who transformed their lives at FitZone
-                    </p>
-                </div>
 
-                <!-- Testimonials Carousel -->
-                <div class="relative max-w-4xl mx-auto mb-16">
-                    <div id="testimonial-container" class="bg-white rounded-lg shadow-lg p-8 min-h-[300px]">
-                        <!-- Testimonials will be dynamically loaded -->
-                    </div>
-                    <button onclick="previousTestimonial()" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-red-500 text-white w-12 h-12 rounded-full hover:bg-red-600 transition-colors">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button onclick="nextTestimonial()" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-red-500 text-white w-12 h-12 rounded-full hover:bg-red-600 transition-colors">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-
-                <!-- Stats Section -->
-                <div class="grid md:grid-cols-4 gap-8 mb-16">
-                    <div class="text-center fade-in">
-                        <div class="text-4xl font-bold text-red-500 mb-2">98%</div>
-                        <div class="text-gray-600">Member Satisfaction</div>
-                    </div>
-                    <div class="text-center fade-in" style="animation-delay: 0.1s;">
-                        <div class="text-4xl font-bold text-red-500 mb-2">5000+</div>
-                        <div class="text-gray-600">Happy Members</div>
-                    </div>
-                    <div class="text-center fade-in" style="animation-delay: 0.2s;">
-                        <div class="text-4xl font-bold text-red-500 mb-2">85%</div>
-                        <div class="text-gray-600">Achieve Their Goals</div>
-                    </div>
-                    <div class="text-center fade-in" style="animation-delay: 0.3s;">
-                        <div class="text-4xl font-bold text-red-500 mb-2">4.9</div>
-                        <div class="text-gray-600">Average Rating</div>
-                    </div>
-                </div>
-
-                <!-- Review Grid -->
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover-lift fade-in">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-user text-white"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold">Jessica M.</h3>
-                                <div class="text-yellow-400">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-gray-600">
-                            "The trainers at FitZone are incredible! I've lost 30 pounds and gained so much confidence. 
-                            The community here is so supportive and motivating."
-                        </p>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover-lift fade-in" style="animation-delay: 0.2s;">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-user text-white"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold">David R.</h3>
-                                <div class="text-yellow-400">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-gray-600">
-                            "Best gym I've ever been to! The equipment is top-notch, facilities are always clean, 
-                            and the 24/7 access fits perfectly with my schedule."
-                        </p>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow-lg p-6 hover-lift fade-in" style="animation-delay: 0.4s;">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-user text-white"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold">Maria L.</h3>
-                                <div class="text-yellow-400">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-gray-600">
-                            "The yoga classes with Emma are amazing! I've improved my flexibility and found inner peace. 
-                            FitZone truly cares about holistic wellness."
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
 
     <!-- FAQ Page -->
     <div id="faq" class="page">
-        <section class="pt-24 pb-20 bg-gray-50">
+        <section class="pt-24 pb-20 bg-gradient-to-br from-slate-50 to-blue-50">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">Frequently Asked Questions</h1>
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">الأسئلة الشائعة</h1>
                     <p class="text-xl text-gray-600 fade-in">
-                        Find answers to common questions about FitZone membership and services
+                        اعثر على إجابات للأسئلة الشائعة حول عضوية وخدمات Iraq_Fit8
                     </p>
                 </div>
 
                 <div class="space-y-4">
                     <div class="bg-white rounded-lg shadow-lg fade-in">
-                        <button class="faq-question w-full text-left p-6 font-semibold text-lg hover:text-red-500 transition-colors flex justify-between items-center" onclick="toggleFAQ(0)">
-                            What are your operating hours?
+                        <button
+                            class="faq-question w-full text-right p-6 font-semibold text-lg hover:text-blue-500 transition-colors flex justify-between items-center"
+                            onclick="toggleFAQ(0)">
+                            ما هي ساعات العمل؟
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </button>
                         <div class="faq-answer px-6 pb-6">
-                            <p class="text-gray-600">
-                                FitZone is open 24/7 for Premium and Elite members. Basic members have access during off-peak hours: 
-                                Monday-Friday 10am-4pm and 8pm-10pm, weekends 8am-6pm. Our staffed hours are Monday-Friday 6am-10pm, 
-                                weekends 8am-8pm.
+                            <p class="text-gray-600 text-right">
+                                Iraq_Fit8 متاح على مدار الساعة طوال أيام الأسبوع لأعضاء الباقات المميزة. الأعضاء
+                                العاديون لديهم وصول خلال الساعات غير المزدحمة:
+                                الاثنين-الجمعة 10ص-4م و8م-10م، عطلات نهاية الأسبوع 8ص-6م. ساعات تواجد الموظفين:
+                                الاثنين-الجمعة 6ص-10م،
+                                عطلات نهاية الأسبوع 8ص-8م.
                             </p>
                         </div>
                     </div>
 
                     <div class="bg-white rounded-lg shadow-lg fade-in" style="animation-delay: 0.1s;">
-                        <button class="faq-question w-full text-left p-6 font-semibold text-lg hover:text-red-500 transition-colors flex justify-between items-center" onclick="toggleFAQ(1)">
-                            Do I need to sign a long-term contract?
+                        <button
+                            class="faq-question w-full text-right p-6 font-semibold text-lg hover:text-blue-500 transition-colors flex justify-between items-center"
+                            onclick="toggleFAQ(1)">
+                            هل أحتاج لتوقيع عقد طويل المدى؟
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </button>
                         <div class="faq-answer px-6 pb-6">
-                            <p class="text-gray-600">
-                                No! All our memberships are month-to-month with no long-term commitment. You can cancel anytime with 
-                                30 days notice. We believe in earning your membership every month through excellent service and results.
+                            <p class="text-gray-600 text-right">
+                                لا! جميع عضوياتنا شهرية بدون التزام طويل المدى. يمكنك الإلغاء في أي وقت مع إشعار مسبق
+                                لمدة 30 يوماً.
+                                نحن نؤمن بكسب عضويتك كل شهر من خلال الخدمة الممتازة والنتائج المحققة.
                             </p>
                         </div>
                     </div>
 
                     <div class="bg-white rounded-lg shadow-lg fade-in" style="animation-delay: 0.2s;">
-                        <button class="faq-question w-full text-left p-6 font-semibold text-lg hover:text-red-500 transition-colors flex justify-between items-center" onclick="toggleFAQ(2)">
-                            What should I bring for my first visit?
+                        <button
+                            class="faq-question w-full text-right p-6 font-semibold text-lg hover:text-blue-500 transition-colors flex justify-between items-center"
+                            onclick="toggleFAQ(2)">
+                            ماذا يجب أن أحضر في زيارتي الأولى؟
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </button>
                         <div class="faq-answer px-6 pb-6">
-                            <p class="text-gray-600">
-                                Bring a valid ID, comfortable workout clothes, athletic shoes, a water bottle, and a towel. 
-                                We provide complimentary towels for Premium and Elite members. Don't forget to bring your motivation - 
-                                we'll provide the rest!
+                            <p class="text-gray-600 text-right">
+                                أحضر هوية صالحة، ملابس تمرين مريحة، أحذية رياضية، زجاجة ماء، ومنشفة.
+                                نحن نوفر مناشف مجانية لأعضاء الباقات المميزة والنخبة. لا تنس أن تحضر دافعيتك -
+                                سنوفر نحن الباقي!
                             </p>
                         </div>
                     </div>
 
                     <div class="bg-white rounded-lg shadow-lg fade-in" style="animation-delay: 0.3s;">
-                        <button class="faq-question w-full text-left p-6 font-semibold text-lg hover:text-red-500 transition-colors flex justify-between items-center" onclick="toggleFAQ(3)">
-                            Can I freeze my membership if I travel?
+                        <button
+                            class="faq-question w-full text-right p-6 font-semibold text-lg hover:text-blue-500 transition-colors flex justify-between items-center"
+                            onclick="toggleFAQ(3)">
+                            هل يمكنني تجميد عضويتي إذا سافرت؟
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </button>
                         <div class="faq-answer px-6 pb-6">
-                            <p class="text-gray-600">
-                                Yes! You can freeze your membership for up to 3 months per year for a small administrative fee of $10/month. 
-                                This is perfect for extended travel, medical reasons, or other life circumstances. Just give us 7 days notice.
+                            <p class="text-gray-600 text-right">
+                                نعم! يمكنك تجميد عضويتك لمدة تصل إلى 3 أشهر سنوياً مقابل رسوم إدارية بسيطة قدرها 10 آلاف
+                                دينار شهرياً.
+                                هذا مثالي للسفر الطويل، الأسباب الطبية، أو ظروف الحياة الأخرى. فقط أعطنا إشعاراً مسبقاً
+                                لمدة 7 أيام.
                             </p>
                         </div>
                     </div>
 
                     <div class="bg-white rounded-lg shadow-lg fade-in" style="animation-delay: 0.4s;">
-                        <button class="faq-question w-full text-left p-6 font-semibold text-lg hover:text-red-500 transition-colors flex justify-between items-center" onclick="toggleFAQ(4)">
-                            Do you offer personal training?
+                        <button
+                            class="faq-question w-full text-right p-6 font-semibold text-lg hover:text-blue-500 transition-colors flex justify-between items-center"
+                            onclick="toggleFAQ(4)">
+                            هل تقدمون تدريباً شخصياً؟
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </button>
                         <div class="faq-answer px-6 pb-6">
-                            <p class="text-gray-600">
-                                Absolutely! We have certified personal trainers available for one-on-one sessions. Premium members get 
-                                2 sessions per month included, Elite members get unlimited sessions. Additional sessions can be purchased 
-                                at member rates.
+                            <p class="text-gray-600 text-right">
+                                بالطبع! لدينا مدربون شخصيون معتمدون متاحون لجلسات فردية. أعضاء الباقة المميزة يحصلون على
+                                جلستين شهرياً مشمولتين، أعضاء النخبة يحصلون على جلسات غير محدودة. يمكن شراء جلسات إضافية
+                                بأسعار الأعضاء.
                             </p>
                         </div>
                     </div>
 
                     <div class="bg-white rounded-lg shadow-lg fade-in" style="animation-delay: 0.5s;">
-                        <button class="faq-question w-full text-left p-6 font-semibold text-lg hover:text-red-500 transition-colors flex justify-between items-center" onclick="toggleFAQ(5)">
-                            Is there parking available?
+                        <button
+                            class="faq-question w-full text-right p-6 font-semibold text-lg hover:text-blue-500 transition-colors flex justify-between items-center"
+                            onclick="toggleFAQ(5)">
+                            هل يتوفر موقف للسيارات؟
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </button>
                         <div class="faq-answer px-6 pb-6">
-                            <p class="text-gray-600">
-                                Yes! We offer free parking for all members with over 200 spaces available. The parking lot is well-lit 
-                                and monitored by security cameras for your safety. We also have bike racks for those who prefer to cycle.
+                            <p class="text-gray-600 text-right">
+                                نعم! نوفر موقف سيارات مجاني لجميع الأعضاء مع أكثر من 200 مكان متاح. الموقف مضاء جيداً
+                                ومراقب بكاميرات الأمان لسلامتك. لدينا أيضاً أماكن لركن الدراجات لمن يفضل القدوم
+                                بالدراجة.
                             </p>
                         </div>
                     </div>
 
                     <div class="bg-white rounded-lg shadow-lg fade-in" style="animation-delay: 0.6s;">
-                        <button class="faq-question w-full text-left p-6 font-semibold text-lg hover:text-red-500 transition-colors flex justify-between items-center" onclick="toggleFAQ(6)">
-                            What COVID-19 safety measures do you have?
+                        <button
+                            class="faq-question w-full text-right p-6 font-semibold text-lg hover:text-blue-500 transition-colors flex justify-between items-center"
+                            onclick="toggleFAQ(6)">
+                            ما هي إجراءات السلامة الصحية لديكم؟
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </button>
                         <div class="faq-answer px-6 pb-6">
-                            <p class="text-gray-600">
-                                Your safety is our priority. We maintain enhanced cleaning protocols, provide sanitizing stations throughout 
-                                the facility, ensure proper ventilation, and have flexible policies for members who need to stay home when unwell. 
-                                Our staff is trained in the latest health and safety guidelines.
+                            <p class="text-gray-600 text-right">
+                                سلامتك هي أولويتنا. نحافظ على بروتوكولات تنظيف محسنة، نوفر محطات تعقيم في جميع أنحاء
+                                المرفق، نضمن التهوية المناسبة، ولدينا سياسات مرنة للأعضاء الذين يحتاجون للبقاء في المنزل
+                                عند المرض.
+                                موظفونا مدربون على أحدث إرشادات الصحة والسلامة.
                             </p>
                         </div>
                     </div>
@@ -1035,12 +1523,13 @@
 
                 <!-- Contact CTA -->
                 <div class="mt-16 text-center bg-white rounded-lg shadow-lg p-8 fade-in">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Still Have Questions?</h3>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">لا تزال لديك أسئلة؟</h3>
                     <p class="text-gray-600 mb-6">
-                        Our friendly staff is here to help! Contact us anytime and we'll get back to you quickly.
+                        فريقنا الودود هنا للمساعدة! تواصل معنا في أي وقت وسنعود إليك بسرعة.
                     </p>
-                    <button onclick="showPage('contact')" class="accent-gradient text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
-                        Contact Us
+                    <button onclick="showPage('contact')"
+                        class="accent-gradient text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                        تواصل معنا
                     </button>
                 </div>
             </div>
@@ -1049,7 +1538,7 @@
 
     <!-- Contact Page -->
     <div id="contact" class="page">
-        <section class="pt-24 pb-20 bg-gray-50">
+        <section class="pt-24 pb-20 bg-gradient-to-br from-slate-50 to-blue-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h1 class="text-5xl font-bold text-gray-800 mb-6 fade-in">Get In Touch</h1>
@@ -1067,28 +1556,33 @@
                                 <label class="block text-gray-700 text-sm font-semibold mb-2" for="name">
                                     Full Name *
                                 </label>
-                                <input class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-colors" 
-                                       id="name" type="text" placeholder="Your full name" required>
+                                <input
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-colors"
+                                    id="name" type="text" placeholder="Your full name" required>
                             </div>
                             <div class="mb-6">
                                 <label class="block text-gray-700 text-sm font-semibold mb-2" for="email">
                                     Email Address *
                                 </label>
-                                <input class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-colors" 
-                                       id="email" type="email" placeholder="your.email@example.com" required>
+                                <input
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-colors"
+                                    id="email" type="email" placeholder="your.email@example.com" required>
                             </div>
                             <div class="mb-6">
                                 <label class="block text-gray-700 text-sm font-semibold mb-2" for="phone">
                                     Phone Number
                                 </label>
-                                <input class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-colors" 
-                                       id="phone" type="tel" placeholder="(555) 123-4567">
+                                <input
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-colors"
+                                    id="phone" type="tel" placeholder="(555) 123-4567">
                             </div>
                             <div class="mb-6">
                                 <label class="block text-gray-700 text-sm font-semibold mb-2" for="interest">
                                     I'm Interested In
                                 </label>
-                                <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-colors" id="interest">
+                                <select
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-colors"
+                                    id="interest">
                                     <option value="">Select an option</option>
                                     <option value="membership">Membership Information</option>
                                     <option value="personal-training">Personal Training</option>
@@ -1102,10 +1596,14 @@
                                 <label class="block text-gray-700 text-sm font-semibold mb-2" for="message">
                                     Message *
                                 </label>
-                                <textarea class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-colors h-32 resize-none" 
-                                          id="message" placeholder="Tell us about your fitness goals or any questions you have..." required></textarea>
+                                <textarea
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-colors h-32 resize-none"
+                                    id="message"
+                                    placeholder="Tell us about your fitness goals or any questions you have..."
+                                    required></textarea>
                             </div>
-                            <button type="submit" class="w-full accent-gradient text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                            <button type="submit"
+                                class="w-full accent-gradient text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
                                 Send Message
                             </button>
                         </form>
@@ -1125,7 +1623,8 @@
                                 Wellness District<br>
                                 Healthy City, HC 12345
                             </p>
-                            <div class="bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg h-48 flex items-center justify-center">
+                            <div
+                                class="bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg h-48 flex items-center justify-center">
                                 <div class="text-center text-gray-600">
                                     <i class="fas fa-map text-4xl mb-2"></i>
                                     <p>Interactive Map</p>
@@ -1142,7 +1641,7 @@
                                     <i class="fas fa-phone text-red-500 mr-4 w-5"></i>
                                     <div>
                                         <p class="font-semibold">Phone</p>
-                                        <p class="text-gray-600">(555) 123-FITZONE</p>
+                                        <p class="text-gray-600">7700000000</p>
                                     </div>
                                 </div>
                                 <div class="flex items-center">
@@ -1166,19 +1665,24 @@
                         <div class="bg-white rounded-lg shadow-lg p-8">
                             <h3 class="text-xl font-bold text-gray-800 mb-6">Follow Us</h3>
                             <div class="flex space-x-4">
-                                <a href="#" class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                                <a href="#"
+                                    class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="#" class="w-12 h-12 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
+                                <a href="https://instagram.com/Iraq__Fit8" target="_blank"
+                                    class="w-12 h-12 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="#" class="w-12 h-12 bg-blue-400 text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+                                <a href="#"
+                                    class="w-12 h-12 bg-blue-400 text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
                                     <i class="fab fa-twitter"></i>
                                 </a>
-                                <a href="#" class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+                                <a href="https://wa.me/7700000000" target="_blank"
+                                    class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
-                                <a href="#" class="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+                                <a href="#"
+                                    class="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </div>
@@ -1195,16 +1699,17 @@
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <div class="text-2xl font-bold mb-4">
-                        <span class="text-red-500">Fit</span>Zone
+                        <span class="text-red-500">Iraq</span>_Fit8
                     </div>
                     <p class="text-gray-300 mb-4">
-                        Transform your body, transform your life. Join the FitZone community today.
+                        حول جسمك، حول حياتك. انضم إلى مجتمع Iraq_Fit8 اليوم.
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-300 hover:text-red-500 transition-colors">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-red-500 transition-colors">
+                        <a href="https://instagram.com/Iraq__Fit8" target="_blank"
+                            class="text-gray-300 hover:text-red-500 transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="#" class="text-gray-300 hover:text-red-500 transition-colors">
@@ -1213,34 +1718,42 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <h3 class="text-lg font-semibold mb-4">روابط سريعة</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" onclick="showPage('about')" class="text-gray-300 hover:text-red-500 transition-colors">About Us</a></li>
-                        <li><a href="#" onclick="showPage('courses')" class="text-gray-300 hover:text-red-500 transition-colors">Programs</a></li>
-                        <li><a href="#" onclick="showPage('pricing')" class="text-gray-300 hover:text-red-500 transition-colors">Membership</a></li>
-                        <li><a href="#" onclick="showPage('contact')" class="text-gray-300 hover:text-red-500 transition-colors">Contact</a></li>
+                        <li><a href="#" onclick="showPage('about')"
+                                class="text-gray-300 hover:text-red-500 transition-colors">من نحن</a></li>
+                        <li><a href="#" onclick="showPage('courses')"
+                                class="text-gray-300 hover:text-red-500 transition-colors">البرامج</a></li>
+                        <li><a href="#" onclick="showPage('pricing')"
+                                class="text-gray-300 hover:text-red-500 transition-colors">الأسعار</a></li>
+                        <li><a href="#" onclick="showPage('contact')"
+                                class="text-gray-300 hover:text-red-500 transition-colors">اتصل بنا</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <h3 class="text-lg font-semibold mb-4">خدماتنا</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-red-500 transition-colors">Personal Training</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-red-500 transition-colors">Group Classes</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-red-500 transition-colors">Nutrition Coaching</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-red-500 transition-colors">Recovery Services</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-red-500 transition-colors">التدريب الشخصي</a>
+                        </li>
+                        <li><a href="#" class="text-gray-300 hover:text-red-500 transition-colors">الدروس الجماعية</a>
+                        </li>
+                        <li><a href="#" class="text-gray-300 hover:text-red-500 transition-colors">الإرشاد الغذائي</a>
+                        </li>
+                        <li><a href="#" class="text-gray-300 hover:text-red-500 transition-colors">خدمات التعافي</a>
+                        </li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <h3 class="text-lg font-semibold mb-4">معلومات التواصل</h3>
                     <ul class="space-y-2 text-gray-300">
-                        <li><i class="fas fa-map-marker-alt mr-2"></i>123 Fitness Street, Healthy City</li>
-                        <li><i class="fas fa-phone mr-2"></i>(555) 123-FITZONE</li>
-                        <li><i class="fas fa-envelope mr-2"></i>info@fitzone.com</li>
+                        <li><i class="fas fa-map-marker-alt ml-2"></i>العراق، أربيل</li>
+                        <li><i class="fas fa-phone ml-2"></i><span data-editable="phone">0770000000</span></li>
+                        <li><i class="fas fa-envelope ml-2"></i>info@iraqfit8.com</li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-                <p>&copy; 2023 FitZone. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <p>&copy; 2023 Iraq_Fit8. جميع الحقوق محفوظة. | سياسة الخصوصية | شروط الخدمة</p>
             </div>
         </div>
     </footer>
@@ -1249,7 +1762,27 @@
         // Global variables
         let currentTestimonial = 0;
         let currentFAQ = -1;
-        
+        let editMode = false;
+        let isOwner = false;
+        let logoClickCount = 0;
+
+        // Owner authentication
+        const OWNER_PASSWORD = "Iraq_Fit8_2024"; // كلمة المرور الخاصة بك
+
+        // Content Management System
+        const contentData = {
+            heroTitle: "حول جسمك",
+            heroSubtitle: ", حول حياتك",
+            heroDescription: "انضم إلى Iraq_Fit8 واكتشف أقوى نسخة من نفسك",
+            openingDate: "الافتتاح يوم الجمعة 29 من الشهر الحالي",
+            openingNote: "احجز مكانك مبكراً لضمان متابعة دقيقة لكل مشترك",
+            trainerName: "المدرب عراق محمد",
+            trainerBio: "مدرّب لياقة بدنية معتمد، أمتلك شغفًا لا ينطفئ بالرياضة، وخبرة تمتد لأكثر من 12 عامًا في مجال التدريب الرياضي والصحة البدنية",
+            phone: "07769484009",
+            instagram: "https://instagram.com/Iraq__Fit8",
+            whatsapp: "https://wa.me/77000000000"
+        };
+
         const testimonials = [
             {
                 name: "Sarah Thompson",
@@ -1283,80 +1816,284 @@
 
         const galleryItems = [
             {
-                title: "Weight Training Area",
-                description: "State-of-the-art equipment for all your strength training needs. From free weights to advanced machines, we have everything to help you build muscle and increase strength.",
+                title: "منطقة تدريب الأوزان",
+                description: "معدات حديثة ومتطورة لجميع احتياجات تدريب القوة. من الأوزان الحرة إلى الآلات المتقدمة، لدينا كل ما تحتاجه لبناء العضلات وزيادة القوة.",
                 icon: "fas fa-dumbbell"
             },
             {
-                title: "Cardio Zone",
-                description: "Modern cardio equipment with entertainment systems and heart rate monitoring. Treadmills, ellipticals, bikes, and more to keep your heart healthy and strong.",
+                title: "منطقة الكارديو",
+                description: "معدات كارديو حديثة مع أنظمة ترفيه ومراقبة معدل ضربات القلب. أجهزة الجري والدراجات وأكثر للحفاظ على صحة قلبك وقوته.",
                 icon: "fas fa-running"
             },
             {
-                title: "Yoga Studio",
-                description: "Peaceful, dedicated space for yoga, pilates, and meditation. Natural lighting and calming atmosphere perfect for mindful movement and relaxation.",
+                title: "استوديو اليوغا",
+                description: "مساحة هادئة ومخصصة لليوغا والبيلاتس والتأمل. إضاءة طبيعية وأجواء مهدئة مثالية للحركة الواعية والاسترخاء.",
                 icon: "fas fa-leaf"
             },
             {
-                title: "Group Classes",
-                description: "Energetic group fitness classes including HIIT, CrossFit, Zumba, and more. Join our community and get motivated by working out with others.",
+                title: "الحصص الجماعية",
+                description: "حصص لياقة جماعية نشطة تشمل HIIT وكروس فيت وزومبا والمزيد. انضم لمجتمعنا واحصل على الدافع من خلال التمرين مع الآخرين.",
                 icon: "fas fa-users"
             },
             {
-                title: "Swimming Pool",
-                description: "Olympic-size swimming pool for lap swimming, water aerobics, and aqua therapy. Perfect for low-impact cardio and full-body conditioning.",
+                title: "حمام السباحة",
+                description: "حمام سباحة بحجم أولمبي للسباحة والتمارين المائية والعلاج المائي. مثالي للكارديو منخفض التأثير وتكييف الجسم بالكامل.",
                 icon: "fas fa-swimmer"
             },
             {
-                title: "Recovery Area",
-                description: "Dedicated space for stretching, foam rolling, and recovery. Includes sauna, massage therapy rooms, and relaxation areas for post-workout recovery.",
+                title: "منطقة الاستشفاء",
+                description: "مساحة مخصصة للتمدد والتدليك والاستشفاء. تشمل الساونا وغرف العلاج بالتدليك ومناطق الاسترخاء للتعافي بعد التمرين.",
                 icon: "fas fa-spa"
             },
             {
-                title: "Nutrition Bar",
-                description: "Healthy smoothies, protein shakes, and nutritious snacks. Our nutrition experts can help you fuel your workouts and recovery properly.",
+                title: "بار التغذية",
+                description: "عصائر صحية ومخفوقات البروتين والوجبات الخفيفة المغذية. خبراء التغذية لدينا يمكنهم مساعدتك في تغذية تمارينك والتعافي بشكل صحيح.",
                 icon: "fas fa-utensils"
             },
             {
-                title: "Success Stories",
-                description: "Wall of fame showcasing our members' incredible transformations and achievements. Get inspired by real people who achieved their fitness goals at FitZone.",
+                title: "قصص النجاح",
+                description: "جدار الشهرة الذي يعرض التحولات والإنجازات المذهلة لأعضائنا. احصل على الإلهام من أشخاص حقيقيين حققوا أهدافهم في اللياقة البدنية مع Iraq_Fit8.",
                 icon: "fas fa-trophy"
             }
         ];
 
         // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             initializeAnimations();
             loadTestimonial();
             setupMobileMenu();
+            loadContentFromStorage();
+            updateContent();
+            checkOwnerAccess();
         });
+
+        // Logo click function to reveal owner login
+        function logoClick() {
+            logoClickCount++;
+
+            if (logoClickCount === 5) {
+                document.getElementById('owner-login-btn').classList.remove('hidden');
+                showNotification('تم تفعيل وضع المالك! انقر على "دخول المالك"', 'info');
+                logoClickCount = 0; // Reset counter
+            } else if (logoClickCount === 1) {
+                // Show subtle hint on first click
+                const logo = document.getElementById('logo');
+                logo.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    logo.style.transform = 'scale(1)';
+                }, 200);
+            }
+
+            // Reset counter after 3 seconds of no clicks
+            setTimeout(() => {
+                if (logoClickCount < 5) {
+                    logoClickCount = 0;
+                }
+            }, 3000);
+        }
+
+        // Show owner login dialog
+        function showOwnerLogin() {
+            const password = prompt('أدخل كلمة المرور للوصول إلى وضع التحرير:');
+            if (password === OWNER_PASSWORD) {
+                isOwner = true;
+                document.getElementById('edit-btn').style.display = 'block';
+                document.getElementById('owner-login-btn').classList.add('hidden');
+                showNotification('مرحباً بك! يمكنك الآن الوصول لوضع التحرير', 'success');
+            } else if (password !== null) { // User didn't cancel
+                showNotification('كلمة المرور غير صحيحة!', 'error');
+            }
+        }
+
+        // Check if user is owner and show edit controls
+        function checkOwnerAccess() {
+            // Check for owner access key in URL or localStorage
+            const urlParams = new URLSearchParams(window.location.search);
+            const ownerKey = urlParams.get('owner') || localStorage.getItem('iraq_fit8_owner');
+
+            if (ownerKey === 'Iraq_Fit8_Owner_2024') {
+                isOwner = true;
+                document.getElementById('edit-btn').style.display = 'block';
+                localStorage.setItem('iraq_fit8_owner', ownerKey);
+            }
+        }
+
+        // Content Management Functions
+        function toggleEditMode() {
+            if (!isOwner) {
+                showNotification('يجب تسجيل الدخول كمالك أولاً!', 'error');
+                return;
+            }
+
+            editMode = !editMode;
+            const editBtn = document.getElementById('edit-btn');
+
+            const logoutBtn = document.getElementById('logout-btn');
+
+            if (editMode) {
+                editBtn.innerHTML = '<i class="fas fa-save mr-1"></i>حفظ';
+                editBtn.classList.remove('bg-gray-200', 'hover:bg-gray-300', 'text-gray-700');
+                editBtn.classList.add('bg-green-500', 'hover:bg-green-600', 'text-white');
+                logoutBtn.classList.remove('hidden');
+                enableEditing();
+            } else {
+                editBtn.innerHTML = '<i class="fas fa-edit mr-1"></i>تحرير';
+                editBtn.classList.remove('bg-green-500', 'hover:bg-green-600', 'text-white');
+                editBtn.classList.add('bg-gray-200', 'hover:bg-gray-300', 'text-gray-700');
+                saveContent();
+                disableEditing();
+            }
+        }
+
+        function enableEditing() {
+            // Make text elements editable
+            const editableElements = document.querySelectorAll('[data-editable]');
+            editableElements.forEach(element => {
+                element.contentEditable = true;
+                element.style.border = '2px dashed #3b82f6';
+                element.style.padding = '4px';
+                element.style.borderRadius = '4px';
+                element.title = 'انقر للتحرير';
+            });
+
+            // Show edit indicators
+            showEditIndicators();
+        }
+
+        function disableEditing() {
+            const editableElements = document.querySelectorAll('[data-editable]');
+            editableElements.forEach(element => {
+                element.contentEditable = false;
+                element.style.border = 'none';
+                element.style.padding = '';
+                element.title = '';
+            });
+
+            hideEditIndicators();
+        }
+
+        function logoutOwner() {
+            isOwner = false;
+            editMode = false;
+            disableEditing();
+            const editBtn = document.getElementById('edit-btn');
+            const logoutBtn = document.getElementById('logout-btn');
+
+            editBtn.innerHTML = '<i class="fas fa-edit mr-1"></i>تحرير';
+            editBtn.classList.remove('bg-green-500', 'hover:bg-green-600', 'text-white');
+            editBtn.classList.add('bg-gray-200', 'hover:bg-gray-300', 'text-gray-700');
+            logoutBtn.classList.add('hidden');
+
+            showNotification('تم تسجيل الخروج من وضع التحرير', 'info');
+        }
+
+        function showEditIndicators() {
+            const style = document.createElement('style');
+            style.id = 'edit-indicators';
+            style.textContent = `
+                [data-editable]:hover {
+                    background-color: rgba(59, 130, 246, 0.1) !important;
+                }
+                [data-editable]:focus {
+                    outline: 2px solid #3b82f6 !important;
+                    background-color: rgba(59, 130, 246, 0.05) !important;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        function hideEditIndicators() {
+            const style = document.getElementById('edit-indicators');
+            if (style) style.remove();
+        }
+
+        function saveContent() {
+            // Save current content to contentData and localStorage
+            const editableElements = document.querySelectorAll('[data-editable]');
+            editableElements.forEach(element => {
+                const key = element.getAttribute('data-editable');
+                const content = element.textContent || element.innerText;
+                contentData[key] = content;
+            });
+
+            // Save to localStorage
+            localStorage.setItem('iraqfit8_content', JSON.stringify(contentData));
+
+            // Show success message
+            showNotification('تم حفظ التغييرات بنجاح!', 'success');
+        }
+
+        function loadContentFromStorage() {
+            const saved = localStorage.getItem('iraqfit8_content');
+            if (saved) {
+                Object.assign(contentData, JSON.parse(saved));
+            }
+        }
+
+        function updateContent() {
+            // Update all editable elements with current content
+            Object.keys(contentData).forEach(key => {
+                const element = document.querySelector(`[data-editable="${key}"]`);
+                if (element) {
+                    element.textContent = contentData[key];
+                }
+            });
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            let bgColor = 'bg-blue-500';
+            let icon = 'fas fa-info-circle';
+
+            if (type === 'success') {
+                bgColor = 'bg-green-500';
+                icon = 'fas fa-check-circle';
+            } else if (type === 'error') {
+                bgColor = 'bg-red-500';
+                icon = 'fas fa-exclamation-circle';
+            }
+
+            notification.className = `fixed top-20 right-4 z-50 px-6 py-3 rounded-lg shadow-lg text-white transform translate-x-full transition-transform duration-300 ${bgColor}`;
+            notification.innerHTML = `<i class="${icon} mr-2"></i>${message}`;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+
+            setTimeout(() => {
+                notification.style.transform = 'translateX(full)';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
 
         // Page navigation
         function showPage(pageId) {
             // Hide all pages
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => page.classList.remove('active'));
-            
+
             // Show selected page
             document.getElementById(pageId).classList.add('active');
-            
+
             // Update navigation
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => link.classList.remove('active'));
-            
+
             const activeLink = document.querySelector(`[onclick="showPage('${pageId}')"]`);
             if (activeLink) {
                 activeLink.classList.add('active');
             }
-            
+
             // Scroll to top
             window.scrollTo(0, 0);
-            
+
             // Reinitialize animations for the new page
             setTimeout(() => {
                 initializeAnimations();
             }, 100);
-            
+
             // Close mobile menu if open
             document.getElementById('mobile-menu').classList.add('hidden');
         }
@@ -1386,7 +2123,7 @@
         function setupMobileMenu() {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
-            
+
             mobileMenuBtn.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
@@ -1396,16 +2133,16 @@
         function filterCourses(category) {
             const courseCards = document.querySelectorAll('.course-card');
             const filterBtns = document.querySelectorAll('.filter-btn');
-            
+
             // Update button styles
             filterBtns.forEach(btn => {
                 btn.classList.remove('bg-red-500', 'text-white');
                 btn.classList.add('bg-gray-200', 'text-gray-700');
             });
-            
+
             event.target.classList.remove('bg-gray-200', 'text-gray-700');
             event.target.classList.add('bg-red-500', 'text-white');
-            
+
             // Filter courses
             courseCards.forEach(card => {
                 if (category === 'all' || card.dataset.category === category) {
@@ -1424,7 +2161,7 @@
             const lightbox = document.getElementById('lightbox');
             const content = document.getElementById('lightbox-content');
             const item = galleryItems[index];
-            
+
             content.innerHTML = `
                 <div class="text-center">
                     <i class="${item.icon} text-6xl mb-6 text-white"></i>
@@ -1432,7 +2169,7 @@
                     <p class="text-lg text-gray-300 max-w-2xl mx-auto">${item.description}</p>
                 </div>
             `;
-            
+
             lightbox.classList.add('active');
         }
 
@@ -1448,7 +2185,7 @@
         function loadTestimonial() {
             const container = document.getElementById('testimonial-container');
             const testimonial = testimonials[currentTestimonial];
-            
+
             container.innerHTML = `
                 <div class="testimonial-card text-center">
                     <div class="mb-6">
@@ -1488,7 +2225,7 @@
             const questions = document.querySelectorAll('.faq-question');
             const answers = document.querySelectorAll('.faq-answer');
             const icons = document.querySelectorAll('.faq-question i');
-            
+
             // Close all other FAQs
             answers.forEach((answer, i) => {
                 if (i !== index) {
@@ -1496,11 +2233,11 @@
                     icons[i].style.transform = 'rotate(0deg)';
                 }
             });
-            
+
             // Toggle current FAQ
             const currentAnswer = answers[index];
             const currentIcon = icons[index];
-            
+
             if (currentAnswer.classList.contains('open')) {
                 currentAnswer.classList.remove('open');
                 currentIcon.style.transform = 'rotate(0deg)';
@@ -1513,28 +2250,30 @@
         // Contact form
         function submitContactForm(event) {
             event.preventDefault();
-            
+
             const formData = new FormData(event.target);
             const messageDiv = document.getElementById('form-message');
-            
+
             // Simulate form submission
             messageDiv.innerHTML = '<div class="bg-green-100 text-green-700 p-4 rounded-lg"><i class="fas fa-check-circle mr-2"></i>Thank you for your message! We\'ll get back to you within 24 hours.</div>';
             messageDiv.classList.remove('hidden');
-            
+
             // Reset form
             event.target.reset();
-            
+
             // Hide message after 5 seconds
             setTimeout(() => {
                 messageDiv.classList.add('hidden');
             }, 5000);
         }
 
+
+
         // Auto-advance testimonials
         setInterval(nextTestimonial, 8000);
 
         // Smooth scrolling for anchor links
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             if (e.target.matches('a[href^="#"]')) {
                 e.preventDefault();
                 const target = document.querySelector(e.target.getAttribute('href'));
@@ -1548,18 +2287,45 @@
         });
 
         // Close lightbox on escape key
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeLightbox();
             }
         });
 
         // Close lightbox on background click
-        document.getElementById('lightbox').addEventListener('click', function(e) {
+        document.getElementById('lightbox').addEventListener('click', function (e) {
             if (e.target === this) {
                 closeLightbox();
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'979d4b64219f1ee3',t:'MTc1Njk4Njg5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'97a06cfc61a765c2',t:'MTc1NzAxOTcyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+
+   <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const links = mobileMenu.querySelectorAll("a");
+
+    // إظهار/إخفاء القائمة عند الضغط على زر ☰
+    mobileMenuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // إخفاء القائمة عند الضغط على أي رابط
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+  });
+</script>
+
+
+
+
+</body>
+
+
 </html>
